@@ -4,3 +4,6 @@
 [submodule "legco-watch-hanxu"]
 	path = legco-watch-hanxu
 	url = git@github.com:legco-watch/legco-watch.git
+[submodule "legco-scraper-ken"]
+	path = legco-scraper-ken
+	url = git@github.com:kenyiu/Legco-Scraper.git
