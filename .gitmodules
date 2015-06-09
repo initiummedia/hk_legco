@@ -1,0 +1,6 @@
+[submodule "legcohk-code4hk-pili"]
+	path = legcohk-code4hk-pili
+	url = git@github.com:code4hk/legcohk.git
+[submodule "legco-watch-hanxu"]
+	path = legco-watch-hanxu
+	url = git@github.com:legco-watch/legco-watch.git
