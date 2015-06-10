@@ -7,3 +7,6 @@
 [submodule "legco-scraper-ken"]
 	path = legco-scraper-ken
 	url = git@github.com:kenyiu/Legco-Scraper.git
+[submodule "legco-hansard-siuying"]
+	path = legco-hansard-siuying
+	url = git@github.com:siuying/legco-hansard-parser.git
