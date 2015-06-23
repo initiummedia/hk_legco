@@ -17,3 +17,5 @@ scipy==0.15.1
 seaborn==0.5.1
 six==1.9.0
 tornado==4.2
+lxml
+pyquery
