@@ -99,5 +99,9 @@ def main():
     df.to_csv(path.join(config.DIR_DATA_ROOT, 'records-all-with-info.csv'), encoding='utf-8')
     df.head()
 
+    df = df[['topic_id', 'member_id', 'vote']]
+    df.to_csv(path.join(config.DIR_DATA_ROOT, 'records-all.csv'), encoding='utf-8')
+
+
 if __name__ == '__main__':
     main()
