@@ -1,12 +1,12 @@
-[submodule "legcohk-code4hk-pili"]
-	path = legcohk-code4hk-pili
+[submodule "third/legcohk-code4hk-pili"]
+	path = third/legcohk-code4hk-pili
 	url = git@github.com:code4hk/legcohk.git
-[submodule "legco-watch-hanxu"]
-	path = legco-watch-hanxu
+[submodule "third/legco-watch-hanxu"]
+	path = third/legco-watch-hanxu
 	url = git@github.com:legco-watch/legco-watch.git
-[submodule "legco-scraper-ken"]
-	path = legco-scraper-ken
+[submodule "third/legco-scraper-ken"]
+	path = third/legco-scraper-ken
 	url = git@github.com:kenyiu/Legco-Scraper.git
-[submodule "legco-hansard-siuying"]
-	path = legco-hansard-siuying
+[submodule "third/legco-hansard-siuying"]
+	path = third/legco-hansard-siuying
 	url = git@github.com:siuying/legco-hansard-parser.git
