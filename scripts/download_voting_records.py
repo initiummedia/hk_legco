@@ -17,8 +17,7 @@ SEED_PAGES = [
     'http://www.legco.gov.hk/general/english/counmtg/yr12-16/mtg_1415.htm'
 ]
 # Information fields, useful for reviewing the result
-INFO_FIELDS = ['vote-date', 'vote-time', 'motion-en', 'mover-en', 'mover-type', 'vote-separate-mechanism']
-
+INFO_FIELDS = ['vote-date', 'vote-time', 'motion-en', 'motion-ch', 'mover-en', 'mover-ch', 'mover-type', 'vote-separate-mechanism']
 
 
 def crawl_seed(seed):
@@ -47,9 +46,19 @@ def xml_to_records(xml):
         topic_id = '%s-%s' % (date, topic.attrib['number'])
         for member in topic.xpath('individual-votes/member'):
             member_id = member.attrib['name-en'] # Use English name as ID for sipmlicity
+            member_id_en = member.attrib['name-en']
+            member_id_cn = member.attrib['name-ch']
             vote = member.xpath('vote')[0].text
-            records.append((topic_id, member_id, vote) + tuple(info))
+            records.append((topic_id, member_id, vote, member_id_en, member_id_cn) + tuple(info))
     return records
+
+
+def name_normalize(name):
+    mapping = {
+        'Dr Joseph LEE': 'Prof Joseph LEE',
+        '郭偉強': '郭偉强',
+    }
+    return mapping.get(name, name)
 
 
 # More:
@@ -57,8 +66,10 @@ def xml_to_records(xml):
 def clean_record(t):
     # According to the numbers, they seem to be the same person
     t = list(t)
-    if t[1] == 'Dr Joseph LEE':
-        t[1] = 'Prof Joseph LEE'
+    t[1] = name_normalize(t[1])
+    t[2] = name_normalize(t[2])
+    t[3] = name_normalize(t[3])
+    t[4] = name_normalize(t[4])
     # Other normalization if any
     # ...
     return tuple(t)
@@ -83,7 +94,7 @@ def main():
         sys.stdout.flush()
         with open(path.join(config.DIR_VOTING_RECORDS_RAW, '%s.xml' % m), 'w') as fp:
             if r.ok:
-                fp.write(str(r.content))
+                fp.write(r.content.decode('utf-8'))
                 vote_xmls.append(r.content)
 
     # vote_xmls = filter(lambda r: r.ok, vote_xmls)
@@ -95,7 +106,7 @@ def main():
         records.extend(xml_to_records(vote_xml))
 
     records = [clean_record(r) for r in records]
-    df = pd.DataFrame(records, columns = ['topic_id', 'member_id', 'vote'] + INFO_FIELDS)
+    df = pd.DataFrame(records, columns = ['topic_id', 'member_id', 'vote', 'name-en', 'name-ch'] + INFO_FIELDS)
     df.to_csv(path.join(config.DIR_DATA_ROOT, 'records-all-with-info.csv'), encoding='utf-8')
     df.head()
 
