@@ -1,6 +1,16 @@
 <div class="row">
   <div class="col-md-12">
     <div id="legco">
+      <div class="name-block left">
+        <div ng-repeat="i in rangeMovers" class="name">
+            {{ transDictMover[i]['ch'] }} | {{ (100 + i).toString().substr(-2) }}
+        </div>
+      </div>
+      <div class="name-block top">
+        <div ng-repeat="i in rangeVoters" class="name">
+            {{ (100 + i).toString().substr(-2) }} | {{ transDictVoter[i]['ch'] }}
+        </div>
+      </div>
       <div id="heatmap">
         <div ng-repeat="votes in mvRelation track by $index" class="mv-row">
           <div ng-repeat="vote in votes track by $index" class="mv-cell">
@@ -9,7 +19,6 @@
                  data-value-percentage="{{ vote.valuePercentage }}"
                  data-color="{{ vote.color }}"
                  style="background-color:{{ vote.color }}">
-
             </div>
           </div>
         </div>

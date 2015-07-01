@@ -36,14 +36,18 @@ angular.module('frontendApp')
 
     $http.get('/api/transdict-mover.json').success(function(data){
       $scope.transDictMover = data;
-      console.log(data);
+      $scope.rangeMovers = _.range(1, Object.keys($scope.transDictMover).length + 1);
+      //console.log(data.length);
+      //console.log($scope.rangeMovers);
+      //console.log(data);
     }).error(function(data){
       console.log('loading failure');
     });
 
     $http.get('/api/transdict-voter.json').success(function(data){
       $scope.transDictVoter = data;
-      console.log(data);
+      $scope.rangeVoters = _.range(1, Object.keys($scope.transDictVoter).length + 1);
+      //console.log(data);
     }).error(function(data){
       console.log('loading failure');
     });
@@ -69,5 +73,6 @@ angular.module('frontendApp')
     }).error(function(data){
       console.log('loading failure');
     });
+
 
   }]);

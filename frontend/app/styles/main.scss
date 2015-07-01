@@ -92,19 +92,47 @@ body {
 
 $cell-size: 6px;
 $cell-spacing: 1px;
+$heatmap-left: 100px;
+$heatmap-top: 100px;
 
 #legco {
-  width: 600px;
-  height: 600px;
+  width: 800px;
+  height: 800px;
   border: solid 1px;
   position: relative;
+  font-size: $cell-size;
+  line-height: $cell-size;
+
+  .name-block {
+    position: absolute;
+    line-height: $cell-size;
+    .name {
+      position: relative;
+      margin-bottom: $cell-spacing;
+    }
+    &.left {
+      left: $heatmap-left - 80px;
+      top: $heatmap-top;
+      .name {
+        text-align: right;
+      }
+    }
+    &.top {
+      left: $heatmap-left;
+      top: $heatmap-top - 10px;
+      transform: rotate(-90deg);
+      transform-origin: top left;
+      .name {
+      }
+    }
+  }
 
   #heatmap {
     position: absolute;
     padding: 0;
     margin: 0;
-    top: 10px;
-    left: 10px;
+    top: $heatmap-top;
+    left: $heatmap-left;
 
     div {
       margin: 0;
