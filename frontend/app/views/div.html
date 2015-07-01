@@ -1,3 +1,16 @@
-<p>This is the div view.</p>
+<div class="row">
+  <div class="col-md-12">
+    <div id="legco">
+      <div id="heatmap">
+        <div ng-repeat="votes in mvRelation track by $index" class="mv-row">
+          <div ng-repeat="vote in votes track by $index" class="mv-cell">
+            <div class="mv-cell-inner" data-heat="{{ vote }}">
 
-msg: {{ msg }}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

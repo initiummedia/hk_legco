@@ -89,3 +89,47 @@ body {
     border-bottom: 0;
   }
 }
+
+$cell-size: 6px;
+$cell-spacing: 1px;
+
+#legco {
+  width: 600px;
+  height: 600px;
+  border: solid 1px;
+  position: relative;
+
+  #heatmap {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    top: 10px;
+    left: 10px;
+
+    div {
+      margin: 0;
+      padding: 0;
+    }
+
+    .mv-row {
+      display: block;
+      height: $cell-size;
+      line-height: $cell-size;
+      margin-bottom: $cell-spacing;
+    }
+
+    .mv-cell {
+      display: inline-block;
+      margin-right: $cell-spacing;
+    }
+
+    .mv-cell-inner {
+      background-color: grey;
+      width: $cell-size;
+      height: $cell-size;
+      line-height: $cell-size;
+    }
+  }
+}
+
+
