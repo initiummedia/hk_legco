@@ -116,18 +116,27 @@ angular.module('frontendApp')
         //console.log(story);
         var frameID = 'frame' + i;
         var frameClass = 'frame' + i;
-        var frame = $('<div></div>').attr('id', frameID).addClass('guide-frame').addClass(frameClass);
+        var frame = $('<div></div>').attr('id', frameID).addClass('guide-frame');
 
         frame.appendTo('#legco');
-        frame.hide();
+        //frame.hide();
         var rectangles = JSON.parse(story['gsx$rectangles']['$t']);
+        for (var i=0; i < rectangles.length; i++) {
+          var rPos = rectangles[i];
+          console.log(rPos);
+          var r = $('<div></div>').addClass('rectangle').addClass(frameClass);
+          r.css('top', heatmapTop + cellSize * (rPos[0] - 1) + 'px');
+          r.css('left', heatmapLeft + cellSize * (rPos[1] - 1) + 'px');
+          r.appendTo(frame);
+        }
 
         var nextFunc = function(){
           $scope.currentStep += 1;
           var nextFrameClass = '.frame' + $scope.currentStep;
           console.log($scope.currentStep);
           console.log(nextFrameClass);
-          $('.guide-frame').hide();
+          //$('.guide-frame').hide();
+          $('.rectangle').hide();
           //console.log($('.guide-frame'));
           $(nextFrameClass).show();
           //console.log($(nextFrameClass));

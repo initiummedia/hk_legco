@@ -161,9 +161,15 @@ $heatmap-top: 8 * ($cell-size + $cell-spacing); // max 6 chars in names
 
   .guide-frame{
     position: absolute;
-    left: 100px;
-    top: 100px;
+    left: 0;
+    top: 0;
+
+    .rectangle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: blue;
+    }
   }
 }
-
 
