@@ -25,12 +25,13 @@ angular.module('frontendApp')
         // values are passed in a 2 digit hex values
         beginValue = parseInt(beginValue, 16);
         endValue = parseInt(endValue, 16);
-        return Math.floor((percentage * endValue + (1 - percentage) * beginValue)).toString(16);
+        var intensity = Math.floor(percentage * endValue + (1 - percentage) * beginValue);
+        return (intensity + 0x100).toString(16).substr(-2).toUpperCase();
       };
       return '#'
-        + linearCombination('96', '2C', percentage)
-        + linearCombination('81', '02', percentage)
-        + linearCombination('AC', '54', percentage);
+        + linearCombination('ee', '2C', percentage)
+        + linearCombination('ee', '02', percentage)
+        + linearCombination('ee', '54', percentage);
     };
 
     $http.get('/api/transdict-mover.json').success(function(data){
