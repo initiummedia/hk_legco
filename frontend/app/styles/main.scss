@@ -90,8 +90,8 @@ body {
   }
 }
 
-$cell-size: 20px;
-$cell-spacing: 2px;
+$cell-size: 8px;
+$cell-spacing: 1px;
 $heatmap-left: 15 * ($cell-size + $cell-spacing); // max 13 chars in names
 $heatmap-top: 8 * ($cell-size + $cell-spacing); // max 6 chars in names
 

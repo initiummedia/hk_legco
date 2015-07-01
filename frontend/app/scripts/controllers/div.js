@@ -74,5 +74,19 @@ angular.module('frontendApp')
       console.log('loading failure');
     });
 
+    var script_url = 'https://spreadsheets.google.com/feeds/list/1s2CkDX0sMaZHzHjl_hbJs8DkyUAca08enU1te3aEPUU/od6/public/values?alt=json';
+    $http.get(script_url).success(function(data){
+      console.log(data);
+      $scope.stories = _.map(data.feed.entry, function(v){
+        // Do not process. just use the gsx$ notation
+        //console.log(v);
+        return v;
+      });
+      //console.log($scope.stories);
+    }).error(function(data){
+      console.log('loading failure');
+    });
+
+    $scope.storyPointer = 0;
 
   }]);
