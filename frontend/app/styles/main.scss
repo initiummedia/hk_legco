@@ -168,7 +168,7 @@ $heatmap-top: 8 * ($cell-size + $cell-spacing); // max 6 chars in names
       position: absolute;
       width: 10px;
       height: 10px;
-      background-color: blue;
+      border: 2px dashed #3288E6;
     }
   }
 }

@@ -108,8 +108,9 @@ angular.module('frontendApp')
       // refer to main.scss to sync parameters;
       var cellSize = 8;
       var cellSpacing = 1;
-      var heatmapLeft = 15 * (cellSize + cellSpacing); // max 13 chars in names
-      var heatmapTop = 8 * (cellSize + cellSpacing); // max 6 chars in names
+      var cellBlockSize = cellSize + cellSpacing;
+      var heatmapLeft = 15 * (cellBlockSize); // max 13 chars in names
+      var heatmapTop = 8 * (cellBlockSize); // max 6 chars in names
 
       for (var i in $scope.stories) {
         var story = $scope.stories[i];
@@ -125,8 +126,10 @@ angular.module('frontendApp')
           var rPos = rectangles[i];
           console.log(rPos);
           var r = $('<div></div>').addClass('rectangle').addClass(frameClass);
-          r.css('top', heatmapTop + cellSize * (rPos[0] - 1) + 'px');
-          r.css('left', heatmapLeft + cellSize * (rPos[1] - 1) + 'px');
+          r.css('top', heatmapTop + cellBlockSize * (rPos[0] - 1) + 'px');
+          r.css('left', heatmapLeft + cellBlockSize * (rPos[1] - 1) + 'px');
+          r.css('width', (rPos[3] - rPos[1] + 1) * cellBlockSize);
+          r.css('height', (rPos[2] - rPos[0] + 1) * cellBlockSize);
           r.appendTo(frame);
         }
 
@@ -156,6 +159,7 @@ angular.module('frontendApp')
         });
       }
 
+      $('.rectangle').hide();
       $('.frame0').show();
       tour.start();
 
