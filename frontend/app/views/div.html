@@ -4,7 +4,11 @@
       <div id="heatmap">
         <div ng-repeat="votes in mvRelation track by $index" class="mv-row">
           <div ng-repeat="vote in votes track by $index" class="mv-cell">
-            <div class="mv-cell-inner" data-heat="{{ vote }}">
+            <div class="mv-cell-inner"
+                 data-value="{{ vote.value }}"
+                 data-value-percentage="{{ vote.valuePercentage }}"
+                 data-color="{{ vote.color }}"
+                 style="background-color:{{ vote.color }}">
 
             </div>
           </div>
