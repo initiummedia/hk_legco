@@ -89,4 +89,37 @@ angular.module('frontendApp')
 
     $scope.storyPointer = 0;
 
+    var tour = new Shepherd.Tour({
+      defaults: {
+        classes: 'shepherd-theme-arrows',
+        scrollTo: true
+      }
+    });
+
+    tour.addStep('Overview', {
+      title: 'Title here',
+      text: 'This is overview of the plot',
+      attachTo: '#heatmap',
+      buttons: [
+        {
+          text: 'Next',
+          action: tour.next
+        }
+      ]
+    });
+
+    tour.addStep('Step2', {
+      title: 'Title here 2',
+      text: 'This is overview of the plot 2',
+      attachTo: '#heatmap',
+      buttons: [
+        {
+          text: 'Next',
+          action: tour.next
+        }
+      ]
+    });
+
+    tour.start();
+
   }]);
