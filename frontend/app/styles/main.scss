@@ -90,14 +90,14 @@ body {
   }
 }
 
-$cell-size: 6px;
-$cell-spacing: 1px;
-$heatmap-left: 100px;
-$heatmap-top: 100px;
+$cell-size: 20px;
+$cell-spacing: 2px;
+$heatmap-left: 15 * ($cell-size + $cell-spacing); // max 13 chars in names
+$heatmap-top: 8 * ($cell-size + $cell-spacing); // max 6 chars in names
 
 #legco {
-  width: 800px;
-  height: 800px;
+  width: $heatmap-left + 72 * ($cell-size + $cell-spacing);
+  height: $heatmap-top + 84 * ($cell-size + $cell-spacing);
   border: solid 1px;
   position: relative;
   font-size: $cell-size;
@@ -111,7 +111,7 @@ $heatmap-top: 100px;
       margin-bottom: $cell-spacing;
     }
     &.left {
-      left: $heatmap-left - 80px;
+      left: $heatmap-left - 13 * ($cell-size + $cell-spacing);
       top: $heatmap-top;
       .name {
         text-align: right;
@@ -119,7 +119,7 @@ $heatmap-top: 100px;
     }
     &.top {
       left: $heatmap-left;
-      top: $heatmap-top - 10px;
+      top: $heatmap-top - 2 * ($cell-size + $cell-spacing);
       transform: rotate(-90deg);
       transform-origin: top left;
       .name {
