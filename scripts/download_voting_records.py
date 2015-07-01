@@ -45,11 +45,11 @@ def xml_to_records(xml):
         date = info[0]
         topic_id = '%s-%s' % (date, topic.attrib['number'])
         for member in topic.xpath('individual-votes/member'):
-            member_id = member.attrib['name-en'] # Use English name as ID for sipmlicity
+            member_id = member.attrib['name-en'] # Use English name as ID for simplicity
             member_id_en = member.attrib['name-en']
-            member_id_cn = member.attrib['name-ch']
+            member_id_ch = member.attrib['name-ch']
             vote = member.xpath('vote')[0].text
-            records.append((topic_id, member_id, vote, member_id_en, member_id_cn) + tuple(info))
+            records.append((topic_id, member_id, vote, member_id_en, member_id_ch) + tuple(info))
     return records
 
 
@@ -65,11 +65,16 @@ def name_normalize(name):
 # http://nbviewer.ipython.org/urls/course.ie.cuhk.edu.hk/~engg4030/tutorial/tutorial7/Legco-Preprocessing.ipynb
 def clean_record(t):
     # According to the numbers, they seem to be the same person
+    # records.append((topic_id, member_id, vote, member_id_en, member_id_ch) + tuple(info))
+    # INFO_FIELDS = ['vote-date', 'vote-time', 'motion-en', 'motion-ch', 'mover-en', 'mover-ch', 'mover-type', 'vote-separate-mechanism']
     t = list(t)
     t[1] = name_normalize(t[1])
     t[2] = name_normalize(t[2])
     t[3] = name_normalize(t[3])
     t[4] = name_normalize(t[4])
+    t[9] = name_normalize(t[9])
+    t[10] = name_normalize(t[10])
+
     # Other normalization if any
     # ...
     return tuple(t)
