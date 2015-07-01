@@ -68,10 +68,12 @@ def clean_record(t):
     # records.append((topic_id, member_id, vote, member_id_en, member_id_ch) + tuple(info))
     # INFO_FIELDS = ['vote-date', 'vote-time', 'motion-en', 'motion-ch', 'mover-en', 'mover-ch', 'mover-type', 'vote-separate-mechanism']
     t = list(t)
+    # Voters name
     t[1] = name_normalize(t[1])
     t[2] = name_normalize(t[2])
     t[3] = name_normalize(t[3])
     t[4] = name_normalize(t[4])
+    # Movers name
     t[9] = name_normalize(t[9])
     t[10] = name_normalize(t[10])
 
