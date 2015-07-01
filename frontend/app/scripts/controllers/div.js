@@ -74,6 +74,8 @@ angular.module('frontendApp')
       console.log('loading failure');
     });
 
+    $scope.currentStep = 0;
+
     var script_url = 'https://spreadsheets.google.com/feeds/list/1s2CkDX0sMaZHzHjl_hbJs8DkyUAca08enU1te3aEPUU/od6/public/values?alt=json';
     $http.get(script_url).success(function(data){
       console.log(data);
@@ -83,43 +85,73 @@ angular.module('frontendApp')
         return v;
       });
       //console.log($scope.stories);
+
+      var tour = new Shepherd.Tour({
+        defaults: {
+          classes: 'shepherd-theme-arrows',
+          scrollTo: true
+        }
+      });
+
+      //tour.addStep('Overview', {
+      //  title: 'Title here',
+      //  text: 'This is overview of the plot',
+      //  attachTo: '#heatmap',
+      //  buttons: [
+      //    {
+      //      text: 'Next',
+      //      action: tour.next
+      //    }
+      //  ]
+      //});
+
+      // refer to main.scss to sync parameters;
+      var cellSize = 8;
+      var cellSpacing = 1;
+      var heatmapLeft = 15 * (cellSize + cellSpacing); // max 13 chars in names
+      var heatmapTop = 8 * (cellSize + cellSpacing); // max 6 chars in names
+
+      for (var i in $scope.stories) {
+        var story = $scope.stories[i];
+        //console.log(story);
+        var frameID = 'frame' + i;
+        var frameClass = 'frame' + i;
+        var frame = $('<div></div>').attr('id', frameID).addClass('guide-frame').addClass(frameClass);
+
+        frame.appendTo('#legco');
+        frame.hide();
+        var rectangles = JSON.parse(story['gsx$rectangles']['$t']);
+
+        var nextFunc = function(){
+          $scope.currentStep += 1;
+          var nextFrameClass = '.frame' + $scope.currentStep;
+          console.log($scope.currentStep);
+          console.log(nextFrameClass);
+          $('.guide-frame').hide();
+          //console.log($('.guide-frame'));
+          $(nextFrameClass).show();
+          //console.log($(nextFrameClass));
+          tour.next();
+        };
+
+        tour.addStep('Overview', {
+          title: story['gsx$title']['$t'],
+          text: story['gsx$text']['$t'],
+          attachTo: '.' + frameClass,
+          buttons: [
+            {
+              text: 'Next',
+              action: nextFunc
+            }
+          ]
+        });
+      }
+
+      $('.frame0').show();
+      tour.start();
+
     }).error(function(data){
       console.log('loading failure');
     });
-
-    $scope.storyPointer = 0;
-
-    var tour = new Shepherd.Tour({
-      defaults: {
-        classes: 'shepherd-theme-arrows',
-        scrollTo: true
-      }
-    });
-
-    tour.addStep('Overview', {
-      title: 'Title here',
-      text: 'This is overview of the plot',
-      attachTo: '#heatmap',
-      buttons: [
-        {
-          text: 'Next',
-          action: tour.next
-        }
-      ]
-    });
-
-    tour.addStep('Step2', {
-      title: 'Title here 2',
-      text: 'This is overview of the plot 2',
-      attachTo: '#heatmap',
-      buttons: [
-        {
-          text: 'Next',
-          action: tour.next
-        }
-      ]
-    });
-
-    tour.start();
 
   }]);

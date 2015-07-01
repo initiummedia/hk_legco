@@ -158,6 +158,12 @@ $heatmap-top: 8 * ($cell-size + $cell-spacing); // max 6 chars in names
       line-height: $cell-size;
     }
   }
+
+  .guide-frame{
+    position: absolute;
+    left: 100px;
+    top: 100px;
+  }
 }
 
 
