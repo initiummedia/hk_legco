@@ -108,7 +108,7 @@ angular.module('frontendApp')
       //});
 
       // refer to main.scss to sync parameters;
-      var cellSize = 6;
+      var cellSize = 7;
       var cellSpacing = 2;
       var cellBlockSize = cellSize + cellSpacing;
       var heatmapLeft = 15 * (cellBlockSize); // max 13 chars in names

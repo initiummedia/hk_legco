@@ -1,9 +1,27 @@
+@import "common.scss";
+
+$grey-base: #eee;
+$brand-primary: $main-color;
+$navbar-border-radius: 0;
+
+$navbar-default-color: white;
+$navbar-default-bg: $main-color;
+$navbar-default-link-color:                white;
+$navbar-default-link-hover-color:          white;
+$navbar-default-link-hover-bg:             transparent !default;
+$navbar-default-link-active-color:         white;
+$navbar-default-link-active-bg:            darken($navbar-default-bg, 6.5%) !default;
+$navbar-default-link-disabled-color:       $grey-base;
+$navbar-default-link-disabled-bg:          transparent !default;
+
+$hr-border: lighten($main-color, 20%);
+
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 @import "compass-mixins/lib/_compass.scss";
 // endbower
-@import "common.scss";
 
 .browsehappy {
   margin: 0.2em 0;
@@ -92,8 +110,8 @@ body {
   }
 }
 
-$font-size: 8px;
-$cell-size: 6px;
+$font-size: 9px;
+$cell-size: 7px;
 $cell-spacing: 2px;
 $cell-block-size: $cell-size + $cell-spacing;
 $heatmap-left: 15 * $cell-block-size; // max 13 chars in names
@@ -232,4 +250,11 @@ $alpha-arc: 0.8;
   }
 }
 
+#header.header {
+  border-bottom: none;
+}
+
+#footer.footer {
+  border-top: none;
+}
 
