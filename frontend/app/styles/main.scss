@@ -174,14 +174,16 @@ $heatmap-top: 8 * ($cell-size + $cell-spacing); // max 6 chars in names
 }
 
 $main-color: #31AFBE;
+$alpha-circle: 0.4;
+$alpha-arc: 0.8;
 
 // http://codepen.io/mikeambrosi/pen/JdEMVX
 .loading {
   position: absolute;
   top: 50%;
   left: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-left-color: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba($main-color, $alpha-circle);
+  border-left-color: rgba($main-color, $alpha-arc);
   border-radius: 50%;
 
   &::before,
@@ -189,8 +191,8 @@ $main-color: #31AFBE;
     position: absolute;
     top: 50%;
     left: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-left-color: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba($main-color, $alpha-circle);
+    border-left-color: rgba($main-color, $alpha-arc);
     border-radius: 50%;
   }
 
