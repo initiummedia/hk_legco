@@ -14,12 +14,12 @@
       <!--div class="loading" ng-show="isLoadingMVRelation"></div-->
       <div class="name-block left">
         <div ng-repeat="i in rangeMovers" class="name">
-            {{ transDictMover[i]['ch'] }} <span class="delimiter">|</span> {{ (100 + i).toString().substr(-2) }}
+            {{ transDictMover[i]['ch'] }} <span class="delimiter"></span> {{ (100 + i).toString().substr(-2) }}
         </div>
       </div>
       <div class="name-block top">
         <div ng-repeat="i in rangeVoters" class="name">
-            {{ (100 + i).toString().substr(-2) }} <span class="delimiter">|</span> {{ transDictVoter[i]['ch'] }}
+            {{ (100 + i).toString().substr(-2) }} <span class="delimiter"></span> {{ transDictVoter[i]['ch'] }}
         </div>
       </div>
       <div id="heatmap">
