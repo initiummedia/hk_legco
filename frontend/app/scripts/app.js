@@ -23,7 +23,9 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        redirectTo: '/play'
+        //redirectTo: '/play'
+        templateUrl: 'views/div.html',
+        controller: 'DivCtrl'
       })
       .when('/play', {
         templateUrl: 'views/play.html',
