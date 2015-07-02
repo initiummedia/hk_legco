@@ -170,13 +170,13 @@ angular.module('frontendApp')
           $(nextFrameClass).show();
         };
 
-        var nextFunc = function(){
+        $scope.nextFunc = function(){
           $scope.currentStep += 1;
           changeShepherdStep();
           tour.next();
         };
 
-        var backFunc = function(){
+        $scope.backFunc = function(){
           $scope.currentStep -= 1;
           changeShepherdStep();
           tour.back();
@@ -188,12 +188,12 @@ angular.module('frontendApp')
           attachTo: '.' + frameClass,
           buttons: [
             {
-              text: '下一條',
-              action: nextFunc
+              text: '上條',
+              action: $scope.backFunc
             },
             {
-              text: '上一條',
-              action: backFunc
+              text: '下條',
+              action: $scope.nextFunc
             }
           ]
         });

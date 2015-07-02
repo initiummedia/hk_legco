@@ -3,3 +3,5 @@
 $main-color: #31AFBE;
 //$legco-main-color: #2C0254;
 $legco-main-color: $main-color;
+
+$button-color: lighten(complement($main-color), 20%)

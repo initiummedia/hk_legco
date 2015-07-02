@@ -14,6 +14,10 @@ $navbar-default-link-active-bg:            darken($navbar-default-bg, 6.5%) !def
 $navbar-default-link-disabled-color:       $grey-base;
 $navbar-default-link-disabled-bg:          transparent !default;
 
+$btn-default-color: white;
+$btn-default-bg: $button-color;
+$btn-primary-bg: $button-color;
+
 $hr-border: lighten($main-color, 20%);
 
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
@@ -127,6 +131,27 @@ $heatmap-margin: $cell-block-size * 2; // leave 2 cells of margin
   position: relative;
   font-size: $font-size;
   line-height: $cell-size;
+
+  .control-panel {
+    //border: 1px solid $button-color;
+    position: absolute;
+    top: $heatmap-top + $cell-block-size * 10 ;
+    left: $cell-block-size * 2;
+    z-index: 10;
+    a {
+      display: block;
+    }
+    //font-size: $font-size;
+    //width: $cell-block-size * 6;
+    .back {
+      position: absolute;
+      top: 0em;
+    }
+    .next {
+      position: absolute;
+      top: 3em;
+    }
+  }
 
   .legends {
     position: absolute;
