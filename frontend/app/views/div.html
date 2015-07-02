@@ -1,6 +1,15 @@
 <div class="row">
   <div class="col-md-12">
     <div id="legco">
+      <div class="legends">
+        <div>
+          支持率
+        </div>
+        <div ng-repeat="l in legends">
+            {{ l.valuePercentage }}
+          <div class="legend" style="background-color:{{ l.color }}"></div>
+        </div>
+      </div>
       <div class="loading" ng-show="isLoadingTransDictMover || isLoadingTransDictVoter || isLoadingMVRelation"></div>
       <!--div class="loading" ng-show="isLoadingMVRelation"></div-->
       <div class="name-block left">

@@ -128,6 +128,20 @@ $heatmap-margin: $cell-block-size * 2; // leave 2 cells of margin
   font-size: $font-size;
   line-height: $cell-size;
 
+  .legends {
+    position: absolute;
+    width: 6 * $cell-block-size ;
+    top: $heatmap-top;
+    text-align: right;
+    .legend {
+      display: inline-block;
+      width: $cell-size;
+      height: $cell-size;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
   .name-block {
     position: absolute;
     line-height: $cell-size;

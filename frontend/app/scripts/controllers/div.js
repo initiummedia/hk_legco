@@ -53,6 +53,16 @@ angular.module('frontendApp')
           //+ linearCombination('BE', '54', percentage);
     };
 
+    // generate Legends
+    $scope.legends = _.map([0, 0.2, 0.4, 0.5, 0.6, 0.8, 1].reverse(), function(v){
+      return {
+        value: v,
+        //valuePercentage: (v * 100 + 100).toString(10).substr(-2) + '%',
+        valuePercentage: (v * 100).toString(10) + '%',
+        color: generateGradient(v)
+      };
+    });
+
     $scope.isLoadingTransDictMover = true;
     $scope.isLoadingTransDictVoter = true;
     $scope.isLoadingMVRelation = true;
