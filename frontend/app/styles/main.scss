@@ -1,7 +1,9 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "compass-mixins/lib/_compass.scss";
 // endbower
+@import "common.scss";
 
 .browsehappy {
   margin: 0.2em 0;
@@ -179,7 +181,6 @@ $heatmap-margin: $cell-block-size * 2; // leave 2 cells of margin
   }
 }
 
-$main-color: #31AFBE;
 $alpha-circle: 0.4;
 $alpha-arc: 0.8;
 
