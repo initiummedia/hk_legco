@@ -111,8 +111,8 @@ body {
 }
 
 $font-size: 9px;
-$cell-size: 7px;
-$cell-spacing: 2px;
+$cell-size: 8px;
+$cell-spacing: 1px;
 $cell-block-size: $cell-size + $cell-spacing;
 $heatmap-left: 15 * $cell-block-size; // max 13 chars in names
 $heatmap-top: 8 * $cell-block-size; // max 6 chars in names
@@ -131,6 +131,9 @@ $heatmap-margin: $cell-block-size * 2; // leave 2 cells of margin
   .name-block {
     position: absolute;
     line-height: $cell-size;
+    .delimiter {
+      color: $main-color;
+    }
     .name {
       position: relative;
       margin-bottom: $cell-spacing;
@@ -195,7 +198,10 @@ $heatmap-margin: $cell-block-size * 2; // leave 2 cells of margin
       position: absolute;
       width: 10px;
       height: 10px;
-      border: 1px solid darken($main-color, 10%);
+      //border: 2px solid darken($legco-main-color, 20%);
+      border: 2px solid lighten(complement($legco-main-color), 20%);
+      //box-shadow: 2px 2px 2px 1px lighten($legco-main-color, 20%);
+      box-shadow: 2px 2px 2px 1px lighten(complement($legco-main-color), 50%);
     }
   }
 }

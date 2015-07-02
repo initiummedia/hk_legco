@@ -21,6 +21,8 @@ angular.module('frontendApp')
       // http://www.legco.gov.hk/general/chinese/business/index.html
       // Begin: 9681AC
       // End: 2C0254
+      // Initium color:
+      // $main-color: #31AFBE;
       var linearCombination = function(beginValue, endValue, percentage) {
         // values are passed in a 2 digit hex values
         beginValue = parseInt(beginValue, 16);
@@ -29,9 +31,26 @@ angular.module('frontendApp')
         return (intensity + 0x100).toString(16).substr(-2).toUpperCase();
       };
       return '#'
-        + linearCombination('ee', '2C', percentage)
-        + linearCombination('ee', '02', percentage)
-        + linearCombination('ee', '54', percentage);
+          //// Legco purple
+          //+ linearCombination('ee', '2C', percentage)
+          //+ linearCombination('ee', '02', percentage)
+          //+ linearCombination('ee', '54', percentage);
+          //// Initium blue original
+          //+ linearCombination('ee', '31', percentage)
+          //+ linearCombination('ee', 'AF', percentage)
+          //+ linearCombination('ee', 'BE', percentage);
+          ////Pure Black
+          //+ linearCombination('ee', '00', percentage)
+          //+ linearCombination('ee', '00', percentage)
+          //+ linearCombination('ee', '00', percentage);
+          // Initium blue darken 20%
+          + linearCombination('ee', '1C', percentage)
+          + linearCombination('ee', '64', percentage)
+          + linearCombination('ee', '6D', percentage);
+          ////   Initium + Legco
+          //+ linearCombination('31', '2C', percentage)
+          //+ linearCombination('AF', '02', percentage)
+          //+ linearCombination('BE', '54', percentage);
     };
 
     $scope.isLoadingTransDictMover = true;
@@ -108,8 +127,8 @@ angular.module('frontendApp')
       //});
 
       // refer to main.scss to sync parameters;
-      var cellSize = 7;
-      var cellSpacing = 2;
+      var cellSize = 8;
+      var cellSpacing = 1;
       var cellBlockSize = cellSize + cellSpacing;
       var heatmapLeft = 15 * (cellBlockSize); // max 13 chars in names
       var heatmapTop = 8 * (cellBlockSize); // max 6 chars in names
