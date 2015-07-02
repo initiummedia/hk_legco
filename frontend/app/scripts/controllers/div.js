@@ -39,22 +39,23 @@ angular.module('frontendApp')
     $scope.isLoadingMVRelation = true;
 
     $http.get('/api/transdict-mover.json').success(function(data){
+      $scope.isLoadingTransDictMover = false;
       $scope.transDictMover = data;
       $scope.rangeMovers = _.range(1, Object.keys($scope.transDictMover).length + 1);
-      $scope.isLoadingTransDictMover = false;
     }).error(function(data){
       console.log('loading failure');
     });
 
     $http.get('/api/transdict-voter.json').success(function(data){
+      $scope.isLoadingTransDictVoter = false;
       $scope.transDictVoter = data;
       $scope.rangeVoters = _.range(1, Object.keys($scope.transDictVoter).length + 1);
-      $scope.isLoadingTransDictVoter = false;
     }).error(function(data){
       console.log('loading failure');
     });
 
     $http.get('/api/mv-relation.json').success(function(data){
+      $scope.isLoadingMVRelation = false;
       $scope.mvRelation = data;
       for (var i=0; i<$scope.mvRelation.length; i++) {
         for (var j=0; j<$scope.mvRelation[i].length; j++) {
@@ -71,7 +72,6 @@ angular.module('frontendApp')
           }
         }
       }
-      $scope.isLoadingMVRelation = false;
     }).error(function(data){
       console.log('loading failure');
     });

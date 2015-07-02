@@ -2,6 +2,7 @@
   <div class="col-md-12">
     <div id="legco">
       <div class="loading" ng-show="isLoadingTransDictMover || isLoadingTransDictVoter || isLoadingMVRelation"></div>
+      <!--div class="loading" ng-show="isLoadingMVRelation"></div-->
       <div class="name-block left">
         <div ng-repeat="i in rangeMovers" class="name">
             {{ transDictMover[i]['ch'] }} | {{ (100 + i).toString().substr(-2) }}
