@@ -27,6 +27,13 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
+    'gh-pages': {
+      options: {
+        base: 'dist'
+      },
+      src: ['**']
+    },
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -371,6 +378,7 @@ module.exports = function (grunt) {
           cwd: '<%= yeoman.app %>',
           dest: '<%= yeoman.dist %>',
           src: [
+            'CNAME',
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
