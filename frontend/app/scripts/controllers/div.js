@@ -124,7 +124,7 @@ angular.module('frontendApp')
         var rectangles = JSON.parse(story['gsx$rectangles']['$t']);
         for (var i=0; i < rectangles.length; i++) {
           var rPos = rectangles[i];
-          console.log(rPos);
+          //console.log(rPos);
           var r = $('<div></div>').addClass('rectangle').addClass(frameClass);
           r.css('top', heatmapTop + cellBlockSize * (rPos[0] - 1) + 'px');
           r.css('left', heatmapLeft + cellBlockSize * (rPos[1] - 1) + 'px');

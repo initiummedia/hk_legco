@@ -18,20 +18,24 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch'
+    //'cgBusy'
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      //.when('/', {
-      //  templateUrl: 'views/main.html',
-      //  controller: 'MainCtrl'
-      //})
       .when('/', {
-        templateUrl: 'views/div.html',
-        controller: 'DivCtrl'
+        redirectTo: '/play'
+      })
+      .when('/play', {
+        templateUrl: 'views/play.html',
+        controller: 'PlayCtrl'
       })
       .when('/div', {
         templateUrl: 'views/div.html',
         controller: 'DivCtrl'
+      })
+      .when('/main', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl'
       })
       .when('/about', {
         templateUrl: 'views/about.html',

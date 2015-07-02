@@ -36,6 +36,7 @@ module.exports = function(config) {
       'bower_components/underscore/underscore.js',
       'bower_components/tether/dist/js/tether.js',
       'bower_components/tether-shepherd/dist/js/shepherd.js',
+      'bower_components/angular-busy/dist/angular-busy.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
