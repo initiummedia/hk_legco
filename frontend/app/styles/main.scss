@@ -92,12 +92,16 @@ body {
 
 $cell-size: 8px;
 $cell-spacing: 1px;
-$heatmap-left: 15 * ($cell-size + $cell-spacing); // max 13 chars in names
-$heatmap-top: 8 * ($cell-size + $cell-spacing); // max 6 chars in names
+$cell-block-size: $cell-size + $cell-spacing;
+$heatmap-left: 15 * $cell-block-size; // max 13 chars in names
+$heatmap-top: 8 * $cell-block-size; // max 6 chars in names
+$heatmap-width: $cell-block-size * 70;
+$heatmap-height: $cell-block-size * 82;
+$heatmap-margin: $cell-block-size * 2; // leave 2 cells of margin
 
 #legco {
-  width: $heatmap-left + 72 * ($cell-size + $cell-spacing);
-  height: $heatmap-top + 84 * ($cell-size + $cell-spacing);
+  width: $heatmap-left + $heatmap-width + $heatmap-margin;
+  height: $heatmap-top + $heatmap-height + $heatmap-margin;
   border: solid 1px;
   position: relative;
   font-size: $cell-size;
@@ -111,7 +115,7 @@ $heatmap-top: 8 * ($cell-size + $cell-spacing); // max 6 chars in names
       margin-bottom: $cell-spacing;
     }
     &.left {
-      left: $heatmap-left - 13 * ($cell-size + $cell-spacing);
+      left: $heatmap-left - 13 * $cell-block-size;
       top: $heatmap-top;
       .name {
         text-align: right;
@@ -119,7 +123,7 @@ $heatmap-top: 8 * ($cell-size + $cell-spacing); // max 6 chars in names
     }
     &.top {
       left: $heatmap-left;
-      top: $heatmap-top - 2 * ($cell-size + $cell-spacing);
+      top: $heatmap-top - 2 * $cell-block-size;
       transform: rotate(-90deg);
       transform-origin: top left;
       .name {
@@ -133,6 +137,8 @@ $heatmap-top: 8 * ($cell-size + $cell-spacing); // max 6 chars in names
     margin: 0;
     top: $heatmap-top;
     left: $heatmap-left;
+    width: $heatmap-width;
+    height: $heatmap-height;
 
     div {
       margin: 0;

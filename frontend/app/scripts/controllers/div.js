@@ -34,12 +34,14 @@ angular.module('frontendApp')
         + linearCombination('ee', '54', percentage);
     };
 
+    $scope.isLoadingTransDictMover = true;
+    $scope.isLoadingTransDictVoter = true;
+    $scope.isLoadingMVRelation = true;
+
     $http.get('/api/transdict-mover.json').success(function(data){
       $scope.transDictMover = data;
       $scope.rangeMovers = _.range(1, Object.keys($scope.transDictMover).length + 1);
-      //console.log(data.length);
-      //console.log($scope.rangeMovers);
-      //console.log(data);
+      $scope.isLoadingTransDictMover = false;
     }).error(function(data){
       console.log('loading failure');
     });
@@ -47,7 +49,7 @@ angular.module('frontendApp')
     $http.get('/api/transdict-voter.json').success(function(data){
       $scope.transDictVoter = data;
       $scope.rangeVoters = _.range(1, Object.keys($scope.transDictVoter).length + 1);
-      //console.log(data);
+      $scope.isLoadingTransDictVoter = false;
     }).error(function(data){
       console.log('loading failure');
     });
@@ -69,7 +71,7 @@ angular.module('frontendApp')
           }
         }
       }
-      //console.log(data);
+      $scope.isLoadingMVRelation = false;
     }).error(function(data){
       console.log('loading failure');
     });
