@@ -153,8 +153,8 @@ angular.module('frontendApp')
         frame.appendTo('#legco');
         //frame.hide();
         var rectangles = JSON.parse(story['gsx$rectangles']['$t']);
-        for (var i=0; i < rectangles.length; i++) {
-          var rPos = rectangles[i];
+        for (var j=0; j < rectangles.length; j++) {
+          var rPos = rectangles[j];
           //console.log(rPos);
           var r = $('<div></div>').addClass('rectangle').addClass(frameClass);
           r.css('top', heatmapTop + cellBlockSize * (rPos[0] - 1) - 1 + 'px');
@@ -172,30 +172,73 @@ angular.module('frontendApp')
 
         $scope.nextFunc = function(){
           $scope.currentStep += 1;
+          var jumpToFirst = false;
           changeShepherdStep();
           tour.next();
+          $scope.$apply();
+          //if ($scope.currentStep > $scope.stories.length - 1) {
+          //  $scope.currentStep = 0;
+          //  jumpToFirst = true;
+          //}
+          //changeShepherdStep();
+          //if (jumpToFirst) {
+          //  tour.show(0);
+          //} else {
+          //  tour.next();
+          //}
         };
 
         $scope.backFunc = function(){
           $scope.currentStep -= 1;
+          var jumpToLast = false;
           changeShepherdStep();
           tour.back();
+          $scope.$apply();
+          //if ($scope.currentStep < 0) {
+          //  $scope.currentStep = $scope.stories.length - 1;
+          //}
+          //changeShepherdStep();
+          //if (jumpToLast){
+          //  tour.show($scope.stories.length - 1);
+          //} else {
+          //  tour.back();
+          //}
         };
 
-        tour.addStep('Overview', {
+        var buttons = [];
+        if (i > 0) {
+          buttons.push({
+            text: '上條',
+            action: $scope.backFunc
+          });
+        }
+        if (i < $scope.stories.length - 1) {
+          buttons.push({
+            text: '下條',
+            action: $scope.nextFunc
+          });
+        }
+        //console.log(i);
+        //console.log(buttons);
+        //var buttons = [
+        //  {
+        //    text: '上條',
+        //    action: $scope.backFunc
+        //  },
+        //  {
+        //    text: '下條',
+        //    action: $scope.nextFunc
+        //  }
+        //];
+
+        //var buttonsString = '<br /><a class="btn btn-primary" href="#" ng-click="backFunc()">下一條</a><a class="btn btn-primary" ng-click="nextFunc()">上一條</a>';
+
+        tour.addStep('Step' + i, {
           title: story['gsx$title']['$t'],
+          //text: story['gsx$text']['$t'] + buttonsString,
           text: story['gsx$text']['$t'],
           attachTo: '.' + frameClass,
-          buttons: [
-            {
-              text: '上條',
-              action: $scope.backFunc
-            },
-            {
-              text: '下條',
-              action: $scope.nextFunc
-            }
-          ]
+          buttons: buttons
         });
       }
 

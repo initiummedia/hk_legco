@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <div id="legco">
+      Step {{ currentStep }}
       <div class="control-panel">
         <a class="btn btn-primary back" ng-click="backFunc()" ng-show="currentStep > 0">上條</a>
         <a class="btn btn-primary next" ng-click="nextFunc()" ng-show="currentStep < stories.length - 1">下條</a>
