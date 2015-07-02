@@ -118,8 +118,8 @@ $font-size: 9px;
 $cell-size: 8px;
 $cell-spacing: 1px;
 $cell-block-size: $cell-size + $cell-spacing;
-$heatmap-left: 15 * $cell-block-size; // max 13 chars in names
-$heatmap-top: 8 * $cell-block-size; // max 6 chars in names
+$heatmap-left: 16 * $cell-block-size; // max 13 chars in names
+$heatmap-top: 10 * $cell-block-size; // max 6 chars in names
 $heatmap-width: $cell-block-size * 70;
 $heatmap-height: $cell-block-size * 82;
 $heatmap-margin: $cell-block-size * 2; // leave 2 cells of margin
@@ -170,6 +170,14 @@ $heatmap-margin: $cell-block-size * 2; // leave 2 cells of margin
   .name-block {
     position: absolute;
     line-height: $cell-size;
+    .caption {
+      position: absolute;
+      color: darken($main-color, 20%);
+      font-size: 1.3em;
+      right: 0;
+      top: -1.5em;
+      text-align: right;
+    }
     .delimiter {
       margin: 0;
       padding: 0;
