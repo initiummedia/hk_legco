@@ -164,17 +164,22 @@ angular.module('frontendApp')
           r.appendTo(frame);
         }
 
+        var changeShepherdStep = function(){
+          var nextFrameClass = '.frame' + $scope.currentStep;
+          $('.rectangle').hide();
+          $(nextFrameClass).show();
+        };
+
         var nextFunc = function(){
           $scope.currentStep += 1;
-          var nextFrameClass = '.frame' + $scope.currentStep;
-          console.log($scope.currentStep);
-          console.log(nextFrameClass);
-          //$('.guide-frame').hide();
-          $('.rectangle').hide();
-          //console.log($('.guide-frame'));
-          $(nextFrameClass).show();
-          //console.log($(nextFrameClass));
+          changeShepherdStep();
           tour.next();
+        };
+
+        var backFunc = function(){
+          $scope.currentStep -= 1;
+          changeShepherdStep();
+          tour.back();
         };
 
         tour.addStep('Overview', {
@@ -183,8 +188,12 @@ angular.module('frontendApp')
           attachTo: '.' + frameClass,
           buttons: [
             {
-              text: 'Next',
+              text: '下一條',
               action: nextFunc
+            },
+            {
+              text: '上一條',
+              action: backFunc
             }
           ]
         });
