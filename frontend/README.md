@@ -2,6 +2,8 @@
 
 ## Dependencies
 
+Choose 2
+
 ```
 1) angular#~1.3 which resolved to 1.3.16 and is required by angular-busy#4.1.3
 2) angular#1.3.16 which resolved to 1.3.16 and is required by angular-animate#1.3.16
