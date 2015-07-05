@@ -20,7 +20,7 @@ angular.module('frontendApp')
       {
         'question': '你知道立法會中的提案獲得支持票總數最高是哪位議員嗎？',
         'choices': ['梁振英', '梁家傑', '梁家騮', '梁國雄', '梁美芬'],
-        'answerIndex': 1,
+        'answerIndex': 3,
         'explanation': '梁國雄獲得了約2000張支持票，在70位議員中最高，但他自己提出了一千多個議案，所以大部分支持票都是自己給自己投的。'
       },
       {
@@ -47,7 +47,7 @@ angular.module('frontendApp')
     $scope.updateQuizStatus = function(){
       $timeout(function(){
         $scope.quizFinished = _.reduce($scope.quizes, function(a, b){
-          return a && (b['answerFromUser'] != -1);
+          return a && (b['answerFromUser'] != -1 && b['answerFromUser'] == b['answerIndex']);
         }, true);
         if ($scope.quizFinished) {
           ngDialog.open({

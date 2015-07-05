@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12">
         <p>
-          恭喜！您已經做完我們的小測試。如欲瞭解更多香港立法會的奇聞軼事，請瀏覽我們的
+          恭喜！您已經答對了所有的題目。如欲瞭解更多香港立法會的奇聞軼事，請瀏覽我們的
           <a href="#/matrix" ng-click="closeThisDialog()">立法會矩陣</a>
           吧。
         </p>
@@ -32,12 +32,22 @@
           <label class="btn btn-primary" ng-model="q.answerFromUser" btn-radio="$index || 0" ng-click="updateQuizStatus()">{{ c }}</label>
         </li>
       </ul>
-      <div class="answer" ng-show="q.answerFromUser != -1">
-        <div class="right" ng-show="q.answerFromUser == q.answerIndex">回答正確！</div>
-        <div class="right" ng-show="q.answerFromUser != q.answerIndex">回答錯誤！</div>
-      </div>
-      <div class="explanation" ng-show="q.answerFromUser == q.answerIndex">
-        {{ q.explanation }}
+      <div class="row">
+        <div class="answer col-md-4" ng-show="q.answerFromUser != -1">
+          <div class="right" ng-show="q.answerFromUser == q.answerIndex">
+            <i class="glyphicon glyphicon-ok"></i>
+            回答正確！
+          </div>
+          <div class="right" ng-show="q.answerFromUser != q.answerIndex">
+            <i class="glyphicon glyphicon-remove"></i>
+            回答錯誤！
+          </div>
+        </div>
+        <div class="explanation col-md-8" ng-show="q.answerFromUser == q.answerIndex">
+          <i class="fa fa-book"></i>
+          小知識：
+            {{ q.explanation }}
+        </div>
       </div>
     </div>
 
