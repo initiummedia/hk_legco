@@ -7,7 +7,7 @@
 <div class="row">
   <div class="col-md-12" id="quizes-container">
 
-    <div class="quiz alert" ng-class="{'alert-success': q.answerIndex == q.answerFromUser,
+    <div class="quiz alert" ng-class="{'alert-success': (q.answerFromUser != null) && q.answerIndex == q.answerFromUser,
                                       'alert-danger': (q.answerFromUser != null) && (q.answerIndex != q.answerFromUser)}
                                     " ng-repeat="q in quizes">
       <h2>Q: {{ q.question }}</h2>
