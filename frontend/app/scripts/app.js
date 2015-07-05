@@ -23,10 +23,26 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        //redirectTo: '/play'
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl'
+      })
+      .when('/home', {
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl'
+      })
+      .when('/matrix', {
         templateUrl: 'views/div.html',
         controller: 'DivCtrl'
       })
+      .when('/blog', {
+        templateUrl: 'views/blog.html',
+        controller: 'BlogCtrl'
+      })
+      .when('/about', {
+        templateUrl: 'views/about.html',
+        controller: 'AboutCtrl'
+      })
+      // Following are old entries
       .when('/play', {
         templateUrl: 'views/play.html',
         controller: 'PlayCtrl'
@@ -38,10 +54,6 @@ angular
       .when('/main', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
       })
       .otherwise({
         redirectTo: '/'

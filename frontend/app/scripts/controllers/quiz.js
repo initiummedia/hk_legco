@@ -2,18 +2,16 @@
 
 /**
  * @ngdoc function
- * @name frontendApp.controller:AboutCtrl
+ * @name frontendApp.controller:QuizCtrl
  * @description
- * # AboutCtrl
+ * # QuizCtrl
  * Controller of the frontendApp
  */
 angular.module('frontendApp')
-  .controller('AboutCtrl', ['$scope', '$location', function ($scope, $location) {
+  .controller('QuizCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-    console.log($location.path());
-  }]);
-
+  });
