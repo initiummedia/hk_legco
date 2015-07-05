@@ -17,8 +17,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
-    //'cgBusy'
+    'ngTouch',
+    'ngDialog'
   ])
   .config(function ($routeProvider) {
     $routeProvider

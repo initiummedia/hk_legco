@@ -1,5 +1,11 @@
+<script type="text/ng-template" id="quiz-template">
+  msg:
+  {{ questionID }}
+</script>
+
 <div class="row">
   <div class="col-md-12" id="quizes-container">
+
     <div class="quiz" ng-repeat="q in quizes">
       <h2>Q: {{ q.question }}</h2>
       <ul class="choices">
@@ -16,6 +22,7 @@
         {{ q.explanation }}
       </div>
     </div>
+
   </div>
 </div>
 
