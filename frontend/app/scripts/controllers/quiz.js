@@ -8,11 +8,18 @@
  * Controller of the frontendApp
  */
 angular.module('frontendApp')
-  .controller('QuizCtrl', function ($scope, ngDialog) {
+  .controller('QuizCtrl', function ($rootScope, $scope, $timeout, ngDialog) {
+
+    //// TODO: probably there is a better global position for this?
+    //$rootScope.$on("$locationChangeStart", function(event, next, current) {
+    //  console.log("location changing to:" + next);
+    //  ngDialog.close();
+    //});
+
     $scope.quizes = [
       {
         'question': '你知道立法會中的提案獲得支持票總數最高是哪位議員嗎？',
-        'choices': ['梁振英', '梁國雄', '梁家傑', '梁家騮', '梁美芬'],
+        'choices': ['梁振英', '梁家傑', '梁家騮', '梁國雄', '梁美芬'],
         'answerIndex': 1,
         'explanation': '梁國雄獲得了約2000張支持票，在70位議員中最高，但他自己提出了一千多個議案，所以大部分支持票都是自己給自己投的。'
       },
@@ -30,11 +37,25 @@ angular.module('frontendApp')
       }
     ];
 
-    for (var i = 0; i < $scope.quizes; i ++) {
-      $scope.quizes['answerFromUser'] = -1;
+    for (var i = 0; i < $scope.quizes.length; i ++) {
+      $scope.quizes[i]['answerFromUser'] = -1;
     }
 
     $scope.questionID = 0;
+
+    $scope.quizFinished = false;
+    $scope.updateQuizStatus = function(){
+      $timeout(function(){
+        $scope.quizFinished = _.reduce($scope.quizes, function(a, b){
+          return a && (b['answerFromUser'] != -1);
+        }, true);
+        if ($scope.quizFinished) {
+          ngDialog.open({
+            template: 'finishedDialog'
+          });
+        }
+      }, 300);
+    }
 
     //for (var i = 0; i < $scope.quizes.length; i++) {
     //  ngDialog.open({

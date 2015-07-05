@@ -15,7 +15,7 @@ angular.module('frontendApp')
       'Karma'
     ];
 
-    // probably there is a better global position for this?
+    // TODO: probably there is a better global position for this?
     $rootScope.$on("$locationChangeStart", function(event, next, current) {
       console.log("location changing to:" + next);
       $scope.tour.cancel();

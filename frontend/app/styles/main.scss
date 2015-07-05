@@ -345,10 +345,25 @@ $alpha-arc: 0.8;
     margin-bottom: 1em;
     img {
       max-width: 70%;
-      display: inline-block;
+      display: block;
+      margin: 0;
       margin-left: auto;
       margin-right: auto;
     }
   }
 }
 
+.quiz-finish-prompt {
+  margin: 1em;
+  padding: 0.7em;
+  p {
+    margin-bottom: 1em;
+  }
+  img {
+    max-width: 70%;
+    display: block;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
