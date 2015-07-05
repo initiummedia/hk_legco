@@ -8,12 +8,18 @@
  * Controller of the frontendApp
  */
 angular.module('frontendApp')
-  .controller('DivCtrl', ['$scope', '$http', function ($scope, $http) {
+  .controller('DivCtrl', ['$rootScope', '$scope', '$http', function ($rootScope, $scope, $http) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+
+    // probably there is a better global position for this?
+    $rootScope.$on("$locationChangeStart", function(event, next, current) {
+      console.log("location changing to:" + next);
+      $scope.tour.cancel();
+    });
 
     //var generateGradient = function(beginColor, endColor, percentage){
     var generateGradient = function(percentage){
@@ -245,6 +251,8 @@ angular.module('frontendApp')
       $('.rectangle').hide();
       $('.frame0').show();
       tour.start();
+
+      $scope.tour = tour;
 
     }).error(function(data){
       console.log('loading failure');
