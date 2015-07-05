@@ -65,6 +65,9 @@ body {
   padding-top: 19px;
   color: #777;
   border-top: 1px solid #e5e5e5;
+  .glyphicon.glyphicon-heart {
+    color: $main-color;
+  }
 }
 
 .container-narrow > hr {
@@ -365,5 +368,30 @@ $alpha-arc: 0.8;
     margin: 0;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+#about {
+  h2, h3 {
+    text-align: center;
+  }
+  .introduction {
+    margin: 1em;
+    text-align: center;
+  }
+  .headshot {
+    text-align: center;
+    .fa {
+      font-size: 60px;
+      &.fa-male {
+        color: $main-color;
+      }
+      &.fa-female {
+        color: $button-color;
+      }
+    }
+  }
+  .member {
+    border: 1px solid $grey-base;
   }
 }
