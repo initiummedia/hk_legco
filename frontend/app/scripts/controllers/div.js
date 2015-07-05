@@ -73,6 +73,9 @@ angular.module('frontendApp')
     $scope.isLoadingTransDictVoter = true;
     $scope.isLoadingMVRelation = true;
 
+    //$scope.rangeMovers = _.range(1, 82);
+    //$scope.rangeVoters = _.range(1, 70);
+
     $http.get('/api/transdict-mover.json').success(function(data){
       $scope.isLoadingTransDictMover = false;
       $scope.transDictMover = data;

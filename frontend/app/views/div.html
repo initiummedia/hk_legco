@@ -17,13 +17,13 @@
       </div>
       <div class="loading" ng-show="isLoadingTransDictMover || isLoadingTransDictVoter || isLoadingMVRelation"></div>
       <!--div class="loading" ng-show="isLoadingMVRelation"></div-->
-      <div class="name-block left">
+      <div class="name-block left" ng-show="!isLoadingTransDictMover">
         <div class="caption">提案者↓</div>
         <div ng-repeat="i in rangeMovers" class="name">
             {{ transDictMover[i]['ch'] }} <span class="delimiter"></span> {{ (100 + i).toString().substr(-2) }}
         </div>
       </div>
-      <div class="name-block top">
+      <div class="name-block top" ng-show="!isLoadingTransDictVoter">
         <div class="caption">投票者↓</div>
         <div ng-repeat="i in rangeVoters" class="name">
             {{ (100 + i).toString().substr(-2) }} <span class="delimiter"></span> {{ transDictVoter[i]['ch'] }}
