@@ -314,3 +314,20 @@ $alpha-arc: 0.8;
   border-top: none;
 }
 
+
+#quizes-container {
+  ul.choices {
+    li {
+      list-style-type: none;
+      display: inline-block;
+      margin: 0.5em;
+      padding: 0.5em;
+    }
+  }
+  .answer {
+    //visibility: hidden;
+  }
+  .explanation {
+    //visibility: hidden;
+  }
+}
