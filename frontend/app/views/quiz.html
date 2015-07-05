@@ -1,1 +1,21 @@
-<p>This is the quiz view.</p>
+<div class="row">
+  <div class="col-md-12" id="quizes-container">
+    <div class="quiz" ng-repeat="q in quizes">
+      <h2>Q: {{ q.question }}</h2>
+      <ul class="choices">
+        <li ng-repeat="c in q.choices track by $index">
+          {{ $index }} - {{ c }}
+        </li>
+      </ul>
+      <div class="answer">
+        Answer is {{ q.answerIndex }}
+        <br/>
+        {{ q.choices[q.answerIndex] }}
+      </div>
+      <div class="explanation">
+        {{ q.explanation }}
+      </div>
+    </div>
+  </div>
+</div>
+
