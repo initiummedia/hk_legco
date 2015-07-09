@@ -362,12 +362,12 @@ $alpha-arc: 0.8;
   p {
     margin-bottom: 1em;
   }
-  figure {
+  .figure {
     text-align: center;
     margin-bottom: 1em;
     img {
       -webkit-filter: hue-rotate(279deg);
-      max-width: 70%;
+      max-width: 90%;
       display: block;
       margin: 0;
       margin-left: auto;
