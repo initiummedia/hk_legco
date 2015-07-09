@@ -42,6 +42,7 @@ body {
 .header,
 .marketing,
 .footer {
+  visibility: hidden;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -117,9 +118,9 @@ body {
   }
 }
 
-$font-size: 8px;
-$cell-size: 7px;
-$cell-spacing: 1px;
+$font-size: 100px;
+$cell-size: 90px;
+$cell-spacing: 10px;
 $cell-block-size: $cell-size + $cell-spacing;
 $heatmap-left: 16 * $cell-block-size; // max 13 chars in names
 $heatmap-top: 10 * $cell-block-size; // max 6 chars in names
@@ -145,6 +146,11 @@ $heatmap-margin: $cell-block-size * 2; // leave 2 cells of margin
   height: $heatmap-top + $heatmap-height + $heatmap-margin;
   border: solid 1px $main-color;
   position: relative;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+
   font-size: $font-size;
   line-height: $cell-size;
 

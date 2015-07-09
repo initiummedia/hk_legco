@@ -11,4 +11,9 @@ Choose 2
 4) angular#^1.3.0 which resolved to 1.4.1 and is required by frontend
 ```
 
+## Screenshot
+
+```
+phantomjs screen.js
+```
 
