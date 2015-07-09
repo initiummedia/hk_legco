@@ -24,29 +24,81 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+
+    <!-- Icon menu -->
+    <a href="#" id="nav-menu">
+      <div id="menu"></div>
+    </a>
+
+    <nav id="nav">
+      <div id="header">
+        <img id="headshot" src="{{ "/hupili.jpg" | prepend: site.baseurl }}" alt="Pili Hu">
+        <p>
+          Pili Hu
+          <br/>
+          <small> <i> Think aloud </i> </small>
+        </p>
+        <div id="sociallinks">
+          <ul>
+            <li>
+              <a href="https://github.com/hupili"> <i class="icon github"></i> </a>
+            </li>
+            <li>
+              <a href="https://linkedin.com/in/hupili"> <i class="icon linkedin"></i> </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/hupili"> <i class="icon facebook"></i> </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/hupili"> <i class="icon twitter"></i> </a>
+            </li>
+            <li>
+              <a href="http://weibo.com/impige"> <i class="icon weibo"></i> </a>
+            </li>
+            <br/>
+            <li>
+              <a href="/feeds/rss.xml"> <i class="icon rss"></i> </a>
+            </li>
+            <li>
+              <a href="/search/"> <i class="icon search"></i> </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="nav-list">
+        <a href="/">Blog</a>
+        <a href="/article/">Article</a>
+        <a href="/about/">About</a>
+      </div>
+    </nav>
+
     <!-- Add your site or application content here -->
-    <div id="header" class="header" ng-controller="HeaderCtrl">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
+    <div id="wrapper">
+      <div id="sidebar-wrapper">
+        <div id="header" class="header" ng-controller="HeaderCtrl">
+          <div class="navbar navbar-default" role="navigation">
+            <div class="container">
+              <div class="navbar-header">
 
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
 
-            <a class="navbar-brand" href="#/">LegcoMatrix</a>
-          </div>
+                <a class="navbar-brand" href="#/">LegcoMatrix</a>
+              </div>
 
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
+              <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
-            <ul class="nav navbar-nav">
-              <li ng-class="{ active: isActive('/matrix')}" ><a href="#/matrix">Matrix</a></li>
-              <li ng-class="{ active: isActive('/blog')}" ><a href="#/blog">Blog</a></li>
-              <li ng-class="{ active: isActive('/about')}" ><a href="#/about">About</a></li>
-            </ul>
+                <ul class="nav navbar-nav">
+                  <li ng-class="{ active: isActive('/matrix')}" ><a href="#/matrix">Matrix</a></li>
+                  <li ng-class="{ active: isActive('/blog')}" ><a href="#/blog">Blog</a></li>
+                  <li ng-class="{ active: isActive('/about')}" ><a href="#/about">About</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
