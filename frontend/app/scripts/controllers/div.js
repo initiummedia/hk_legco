@@ -262,8 +262,8 @@ angular.module('frontendApp')
 
       // Start tour
 
-      //$('.frame0').show();
-      //tour.start();
+      $('.frame0').show();
+      tour.start();
 
       $scope.tour = tour;
 
