@@ -259,6 +259,9 @@ angular.module('frontendApp')
       }
 
       $('.rectangle').hide();
+
+      // Start tour
+
       $('.frame0').show();
       tour.start();
 
