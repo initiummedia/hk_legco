@@ -368,11 +368,17 @@ $alpha-arc: 0.8;
     img {
       -webkit-filter: hue-rotate(279deg);
       max-width: 90%;
-      display: block;
-      margin: 0;
-      margin-left: auto;
-      margin-right: auto;
+      //display: block;
+      //margin: 0;
+      //margin-left: auto;
+      //margin-right: auto;
     }
+  }
+  .left {
+    text-align: left;
+  }
+  .right {
+    text-align: right;
   }
 }
 
