@@ -117,8 +117,8 @@ body {
   }
 }
 
-$font-size: 9px;
-$cell-size: 8px;
+$font-size: 5px;
+$cell-size: 4px;
 $cell-spacing: 1px;
 $cell-block-size: $cell-size + $cell-spacing;
 $heatmap-left: 16 * $cell-block-size; // max 13 chars in names
@@ -126,6 +126,19 @@ $heatmap-top: 10 * $cell-block-size; // max 6 chars in names
 $heatmap-width: $cell-block-size * 70;
 $heatmap-height: $cell-block-size * 82;
 $heatmap-margin: $cell-block-size * 2; // leave 2 cells of margin
+
+#style-info {
+  visibility: hidden;
+  #font-size {
+    font-size: $font-size;
+  }
+  #cell-size {
+    font-size: $cell-size;
+  }
+  #cell-spacing {
+    font-size: $cell-spacing;
+  }
+}
 
 #legco {
   width: $heatmap-left + $heatmap-width + $heatmap-margin;

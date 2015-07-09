@@ -145,9 +145,16 @@ angular.module('frontendApp')
       //  ]
       //});
 
+      var getStyleInfo = function(styleName){
+        var a = $('#style-info #' + styleName).css('font-size');
+        //console.log(a);
+        return parseInt(a.substr(0,a.length-2));
+      };
+
       // refer to main.scss to sync parameters;
-      var cellSize = 8;
-      var cellSpacing = 1;
+      var cellSize = getStyleInfo('cell-size');
+      var cellSpacing = getStyleInfo('cell-spacing');
+      var fontSize = getStyleInfo('font-size');
       var cellBlockSize = cellSize + cellSpacing;
       var heatmapLeft = 16 * (cellBlockSize); // max 13 chars in names
       var heatmapTop = 10 * (cellBlockSize); // max 6 chars in names
