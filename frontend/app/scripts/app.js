@@ -27,6 +27,10 @@ angular
         templateUrl: 'views/quiz.html',
         controller: 'QuizCtrl'
       })
+      .when('/matrix-meta', {
+        templateUrl: 'views/meta.html',
+        controller: 'DivCtrl'
+      })
       .when('/home', {
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl'
