@@ -76,7 +76,7 @@ angular.module('frontendApp')
     //$scope.rangeMovers = _.range(1, 82);
     //$scope.rangeVoters = _.range(1, 70);
 
-    $http.get('/api/transdict-mover.json').success(function(data){
+    $http.get('api/transdict-mover.json').success(function(data){
       $scope.isLoadingTransDictMover = false;
       $scope.transDictMover = data;
       $scope.rangeMovers = _.range(1, Object.keys($scope.transDictMover).length + 1);
@@ -84,7 +84,7 @@ angular.module('frontendApp')
       console.log('loading failure');
     });
 
-    $http.get('/api/transdict-voter.json').success(function(data){
+    $http.get('api/transdict-voter.json').success(function(data){
       $scope.isLoadingTransDictVoter = false;
       $scope.transDictVoter = data;
       $scope.rangeVoters = _.range(1, Object.keys($scope.transDictVoter).length + 1);
@@ -92,7 +92,7 @@ angular.module('frontendApp')
       console.log('loading failure');
     });
 
-    $http.get('/api/mv-relation.json').success(function(data){
+    $http.get('api/mv-relation.json').success(function(data){
       $scope.isLoadingMVRelation = false;
       $scope.mvRelation = data;
       for (var i=0; i<$scope.mvRelation.length; i++) {
