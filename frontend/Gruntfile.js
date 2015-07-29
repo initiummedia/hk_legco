@@ -429,6 +429,22 @@ module.exports = function (grunt) {
       ]
     },
 
+    rsync: {
+      options: {
+        args: ["--verbose"],
+        exclude: [".git*","*.scss","node_modules"],
+        recursive: true
+      },
+      showcase: {
+        options: {
+          src: "./dist/",
+          dest: "/home/vagrant/web/legco",
+          host: "showcase",
+          delete: true // Careful this option could cause data loss, read the docs!
+        }
+      }
+    },
+
     // Test settings
     karma: {
       unit: {
