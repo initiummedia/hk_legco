@@ -45,7 +45,7 @@ angular
         templateUrl: 'views/20150812-hk-legco-analysis.html',
         controller: 'BlogCtrl'
       })
-      .when('/blog_hans', {
+      .when('/blog-hans', {
         //templateUrl: 'views/blog.html',
         templateUrl: 'views/20150812-hk-legco-analysis-hans.html',
         controller: 'BlogCtrl'
