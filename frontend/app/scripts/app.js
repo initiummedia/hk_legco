@@ -19,6 +19,7 @@ angular
     'ngSanitize',
     'ngTouch',
     'ngDialog',
+    'monospaced.qrcode',
     'ui.bootstrap'
   ])
   .config(function ($routeProvider) {

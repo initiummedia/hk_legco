@@ -8,12 +8,15 @@
  * Controller of the frontendApp
  */
 angular.module('frontendApp')
-  .controller('BlogCtrl', function ($scope) {
+  .controller('BlogCtrl', function ($scope, $location) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+
+    $scope.urlToThisPage = $location.absUrl();
+
 
     //TODO: add any control logics here
     $('#shareVideoToFacebookAnchor').attr('href', 'https://facebook.com/');
