@@ -39,6 +39,8 @@ module.exports = function(config) {
       'bower_components/angular-busy/dist/angular-busy.js',
       'bower_components/ngDialog/js/ngDialog.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      'bower_components/qrcode-generator/js/qrcode.js',
+      'bower_components/angular-qrcode/angular-qrcode.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
