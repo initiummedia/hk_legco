@@ -451,6 +451,12 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    execute: {
+      opencc: {
+        src: ['utils/s2t.js']
+      }
     }
   });
 
@@ -498,7 +504,8 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'execute:opencc'
   ]);
 
   grunt.registerTask('default', [
@@ -506,4 +513,6 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.loadNpmTasks('grunt-execute');
 };
