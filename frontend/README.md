@@ -11,12 +11,12 @@ Choose 2
 4) angular#^1.3.0 which resolved to 1.4.1 and is required by frontend
 ```
 
-## Deploy to Showcase Server
+## Build & Deploy
 
-```
-grunt build
-grunt rsync
-```
+Regardless of the deploy target, build first: `grunt build`
+
+* Deploy to staging server (rsync): `grunt deploy:staging`
+* Deploy to prod server (gh-pages): `grunt deploy:prod`
 
 ## Screenshot
 
