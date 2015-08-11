@@ -17,4 +17,7 @@ angular.module('frontendApp')
     };
     //$scope.showHeader = false;
     $scope.showHeader = true;
+    if ($location.path() === '/blog' || $location.path() === '/20150812-hk-legco-analysis') {
+      $scope.showHeader = false;
+    }
   }]);
