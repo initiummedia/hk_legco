@@ -404,6 +404,12 @@ module.exports = function (grunt) {
 
     // Copies remaining files to places other tasks can use
     copy: {
+      index: {
+        expand: true,
+        cwd: '<%= yeoman.dist %>',
+        dest: '<%= yeoman.dist %>/index.html.orig',
+        src: 'index.html'
+      },
       dist: {
         files: [{
           expand: true,
@@ -488,6 +494,30 @@ module.exports = function (grunt) {
       }
     },
 
+    targethtml: {
+      prod: {
+        files: {
+          // dist: src
+          'dist/index.html': 'dist/index.html.orig/index.html'
+        }
+      },
+      dist: {
+        files: {
+          'dist/index.html': 'dist/index.html.orig/index.html'
+        }
+      },
+      staging: {
+        files: {
+          'dist/index.html': 'dist/index.html.orig/index.html'
+        }
+      },
+      dev: {
+        files: {
+          'dist/index.html': 'dist/index.html.orig/index.html'
+        }
+      }
+    },
+
     execute: {
       opencc: {
         src: ['utils/s2t.js']
@@ -545,7 +575,19 @@ module.exports = function (grunt) {
     'usemin',
     'htmlmin',
     'execute:opencc',
-    'copy:indices'
+    'copy:index',
+  ]);
+
+  grunt.registerTask('deploy:prod', [
+    'targethtml:prod',
+    'copy:indices',
+    'gh-pages'
+  ]);
+
+  grunt.registerTask('deploy:staging', [
+    'targethtml:staging',
+    'copy:indices',
+    'rsync:showcase'
   ]);
 
   grunt.registerTask('default', [
