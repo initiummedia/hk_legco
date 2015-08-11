@@ -14,4 +14,8 @@ angular.module('frontendApp')
       'AngularJS',
       'Karma'
     ];
+
+    //TODO: add any control logics here
+    $('#shareVideoToFacebookAnchor').attr('href', 'https://facebook.com/');
+
   });

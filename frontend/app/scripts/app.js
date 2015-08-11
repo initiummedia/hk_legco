@@ -40,7 +40,8 @@ angular
         controller: 'DivCtrl'
       })
       .when('/blog', {
-        templateUrl: 'views/blog.html',
+        //templateUrl: 'views/blog.html',
+        templateUrl: 'views/20150812-hk-legco-analysis.html',
         controller: 'BlogCtrl'
       })
       .when('/about', {
@@ -59,6 +60,10 @@ angular
       .when('/main', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
+      })
+      .when('/20150812-hk-legco-analysis', {
+        templateUrl: 'views/20150812-hk-legco-analysis.html',
+        controller: 'BlogCtrl'
       })
       .otherwise({
         redirectTo: '/'

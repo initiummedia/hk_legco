@@ -15,4 +15,6 @@ angular.module('frontendApp')
     $scope.isActive = function (viewLocation){
       return viewLocation === $location.path();
     };
+    //$scope.showHeader = false;
+    $scope.showHeader = true;
   }]);
