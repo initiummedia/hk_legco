@@ -2,13 +2,6 @@ $fullWidth: 1280px;
 $contentWidthRatio: 0.4;
 $contentWidth: $fullWidth * $contentWidthRatio;
 
-@mixin blockAlign($direction) {
-  #{$direction}: 0;
-  @media screen and (max-width: #{$fullWidth}) {
-    float: #{$direction};
-  }
-};
-
 body {
 
   font-family: 'Helvetica Neue', 'Microsoft YaHei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
