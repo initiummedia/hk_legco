@@ -28,12 +28,12 @@ angular.module('frontendApp')
       legcoWeb.lang = 'hant';
       legcoWeb.title = "廿一世紀立會網絡";
       legcoWeb.description = "端傳媒數據報道：香港第五屆立法會投票分析";
-      legcoWeb.url = 'http://legco.initiumlab.com/#/20150812-hk-legco-analysis';
+      legcoWeb.url = 'http://legco.initiumlab.com/20150812-hk-legco-analysis';
     } else {
       legcoWeb.lang = 'hans';
       legcoWeb.title = "廿一世纪立会网络";
       legcoWeb.description = "端传媒数据报道：香港第五届立法会投票分析";
-      legcoWeb.url = 'http://legco.initiumlab.com/#/20150812-hk-legco-analysis-hans';
+      legcoWeb.url = 'http://legco.initiumlab.com/20150812-hk-legco-analysis-hans';
     }
 
     //DEBUG
@@ -111,7 +111,7 @@ angular.module('frontendApp')
       return function () {
         var url = encodeURIComponent(urlForSharing),
           title = encodeURIComponent('分享：' + legcoWeb.title);
-        window.open('http://v.t.sina.com.cn/share/share.php?title=' + title + '&url=' + url);
+        window.open('http://service.weibo.com/share/share.php?title=' + title + '&url=' + url);
         post('share', 'weibo');
       }
     }

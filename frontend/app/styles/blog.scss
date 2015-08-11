@@ -15,10 +15,6 @@ body {
     font-size: 3em;
   }
 
-  #divVideoQRCode {
-    display: none;
-  }
-
   .divQRCode {
     display: none;
     border: 2px solid #333;
@@ -65,6 +61,8 @@ body {
     }
 
     #videoShareDiv {
+
+      display: none;
 
       font-size: 1.5em;
 
@@ -117,6 +115,22 @@ body {
           max-width: none;
         }
       }
+    }
+
+    #credits {
+
+      text-justify: auto;
+
+      font-size: 0.8em;
+
+      .contributorName {
+        margin-right: 0.8em;
+      }
+
+      .contribution {
+        font-weight: bolder;
+      }
+
     }
 
   }
