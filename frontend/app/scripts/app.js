@@ -44,6 +44,11 @@ angular
         templateUrl: 'views/20150812-hk-legco-analysis.html',
         controller: 'BlogCtrl'
       })
+      .when('/blog_hans', {
+        //templateUrl: 'views/blog.html',
+        templateUrl: 'views/20150812-hk-legco-analysis-hans.html',
+        controller: 'BlogCtrl'
+      })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
@@ -63,6 +68,10 @@ angular
       })
       .when('/20150812-hk-legco-analysis', {
         templateUrl: 'views/20150812-hk-legco-analysis.html',
+        controller: 'BlogCtrl'
+      })
+      .when('/20150812-hk-legco-analysis-hans', {
+        templateUrl: 'views/20150812-hk-legco-analysis-hans.html',
         controller: 'BlogCtrl'
       })
       .otherwise({
