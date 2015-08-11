@@ -22,10 +22,13 @@ $hr-border: lighten($main-color, 20%);
 
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 
+
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 @import "compass-mixins/lib/_compass.scss";
 // endbower
+
+@import "blog.scss";
 
 .browsehappy {
   margin: 0.2em 0;

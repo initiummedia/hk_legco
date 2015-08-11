@@ -1,0 +1,99 @@
+$fullWidth: 1280px;
+$contentWidthRatio: 0.4;
+$contentWidth: $fullWidth * $contentWidthRatio;
+
+@mixin blockAlign($direction) {
+  #{$direction}: 0;
+  @media screen and (max-width: #{$fullWidth}) {
+    float: #{$direction};
+  }
+};
+
+body {
+
+  font-family: 'Helvetica Neue', 'Microsoft YaHei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
+  font-size: 18px;
+  color: #333;
+  background-color: #EEE;
+
+  h1 {
+    text-align: center;
+    margin: 1em auto;
+    font-size: 3em;
+  }
+
+  #container {
+
+    margin: 0 auto;
+    max-width: $fullWidth;
+    position: relative;
+
+    p {
+      display: block;
+      max-width: $contentWidth;
+      line-height: 1.6;
+    }
+
+    video {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    #videoShareDiv {
+
+      font-size: 1.5em;
+
+      a {
+
+        text-decoration: none;
+
+        &:hover {
+          opacity: 0.7;
+        }
+
+        img {
+          width: 2ex;
+          vertical-align: baseline;
+        }
+      }
+    }
+
+    #mainBox {
+
+      max-width: $contentWidth;
+      overflow: scroll;
+      margin: 0 auto;
+
+      h2 {
+        text-align: center;
+        max-width: $contentWidth;
+      }
+
+      span.areaReference {
+        $highlightColor: #EE0;
+
+        background-color: $highlightColor;
+
+        &:hover {
+          border-bottom: 5px solid black;
+        }
+      }
+
+      @media screen and (max-width: 1024px) {
+        float: left;
+        width: 100%;
+        max-width: none;
+
+        p {
+          max-width: none;
+        }
+
+        h2 {
+          max-width: none;
+        }
+      }
+    }
+
+  }
+
+}
