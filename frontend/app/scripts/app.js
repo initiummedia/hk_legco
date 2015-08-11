@@ -79,5 +79,12 @@ angular
         redirectTo: '/'
       });
 
-    $locationProvider.html5Mode(true);
+    var html5Mode = $('meta[name="html5Mode"]').first().attr('content');
+    html5Mode = {
+      'true': true,
+      'false': false
+    }[html5Mode];
+    console.log('html5Mode: ' + html5Mode);
+    $locationProvider.html5Mode(html5Mode);
+
   });

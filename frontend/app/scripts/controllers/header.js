@@ -16,8 +16,16 @@ angular.module('frontendApp')
       return viewLocation === $location.path();
     };
     //$scope.showHeader = false;
-    $scope.showHeader = true;
     if ($location.path() === '/blog' || $location.path() === '/20150812-hk-legco-analysis') {
       $scope.showHeader = false;
+    } else {
+      $scope.showHeader = true;
     }
+
+    var pathScheme = $('meta[name="pathScheme"]').first().attr('content');
+    $scope.getRealPath = function(path){
+      return pathScheme + path;
+    };
+    console.log('pathScheme: ' + pathScheme);
+
   }]);
