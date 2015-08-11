@@ -26,15 +26,16 @@
     <a href="" title="分享到新浪微博" class="shareButton" id="shareVideoToWeiboAnchor">
       <i class="fa fa-weibo"></i>
     </a>
-    <a href="" title="分享到微信" class="shareButton" id="shareVideoToWechatAnchor">
+    <a href="" title="分享到微信" class="shareButton" id="shareVideoToWeChatAnchor">
       <i class="fa fa-wechat"></i>
     </a>
   </div>
-  <div>
-      {{ urlToThisPage }}
-  </div>
+
   <div id="pageQRCode">
-    <qrcode data="{{ urlToThisPage }}"></qrcode>
+    <h3 class="weChatShareDescription">請用微信二維碼分享：</h3>
+    <qrcode data="https://www.youtube.com/watch?v=PIgbvFyOnwA&feature=youtu.be"></qrcode>
+    <br />
+    <button id="btnCloseWeChatPopup">關閉</button>
   </div>
 
   <div id="mainBox">

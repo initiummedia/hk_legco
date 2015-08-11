@@ -19,7 +19,9 @@ angular.module('frontendApp')
     $scope.urlToThisPage = $location.absUrl();
 
     // Detect whether the document is simplified
-    var legcoWeb = {};
+    var legcoWeb = {
+      videoURL: 'https://www.youtube.com/watch?v=PIgbvFyOnwA' //FIXME
+    };
 
     legcoWeb.generalTitle = document.getElementById('generalTitle');
     if (generalTitle.innerText === '廿一世紀立會網絡') {
@@ -87,39 +89,64 @@ angular.module('frontendApp')
       console.log('tried to post '+jsonString);
     }
 
-    function shareToFacebook() {
+    function shareToFacebook(urlForSharing) {
 
-      var description = encodeURIComponent(legcoWeb.description),
-          url = encodeURIComponent(legcoWeb.url),
+      return function() {
+        var description = encodeURIComponent(legcoWeb.description),
+          url = encodeURIComponent(urlForSharing),
           title = encodeURIComponent(legcoWeb.title);
 
-      window.open('https://www.facebook.com/dialog/feed?app_id=1485405728425484' +
-        '&link=' + url +
-          //'&picture=' + nkoreaTest.url + nkoreaTest.shareImgRelativePath +
-        '&name=' + title +
-        '&description=' + description +
-        '&redirect_uri=' + url
-      );
-      post('share', 'facebook');
+        window.open('https://www.facebook.com/dialog/feed?app_id=1485405728425484' +
+          '&link=' + url +
+            //'&picture=' + legcoWeb.url + legcoWeb.shareImgRelativePath +
+          '&name=' + title +
+          '&description=' + description +
+          '&redirect_uri=' + url
+        );
+        post('share', 'facebook');
+      }
     }
 
-    function shareToWeibo () {
-      var url = encodeURIComponent(legcoWeb.url),
-          title = encodeURIComponent('文章分享：'+legcoWeb.title);
-      window.open('http://v.t.sina.com.cn/share/share.php?title='+title+'&url='+legcoWeb.url);
-      post('share', 'weibo');
+    function shareToWeibo(urlForSharing) {
+      return function () {
+        var url = encodeURIComponent(urlForSharing),
+          title = encodeURIComponent('分享：' + legcoWeb.title);
+        window.open('http://v.t.sina.com.cn/share/share.php?title=' + title + '&url=' + url);
+        post('share', 'weibo');
+      }
     }
 
-    function shareToTwitter () {
-      var url = encodeURIComponent(legcoWeb.url),
-        title = encodeURIComponent('Share: '+legcoWeb.title);
-      window.open('https://twitter.com/intent/tweet?text='+title);
-      post('share', 'twitter');
+    function shareToTwitter (urlForSharing) {
+      return function () {
+        var url = encodeURIComponent(urlForSharing),
+          title = encodeURIComponent('Share: ' + legcoWeb.title);
+        window.open('https://twitter.com/intent/tweet?text=' + title + url);
+        post('share', 'twitter');
+      }
     }
 
-    document.getElementById('shareVideoToFacebookAnchor').addEventListener('click', shareToFacebook, false);
-    document.getElementById('shareVideoToWeiboAnchor').addEventListener('click', shareToWeibo, false);
-    document.getElementById('shareVideoToTwitterAnchor').addEventListener('click', shareToTwitter, false);
+    function shareVideoToWeChat() {
+      var divQRCode = document.getElementById('pageQRCode');
+      divQRCode.style.display = 'block';
+    }
+
+    document.getElementById('shareVideoToFacebookAnchor').addEventListener('click',
+      shareToFacebook(legcoWeb.videoURL),
+      false);
+    document.getElementById('shareVideoToWeiboAnchor').addEventListener('click',
+      shareToWeibo(legcoWeb.videoURL),
+      false);
+    document.getElementById('shareVideoToTwitterAnchor').addEventListener('click',
+      shareToTwitter(legcoWeb.videoURL),
+      false);
+    document.getElementById('shareVideoToWeChatAnchor').addEventListener('click',
+      shareVideoToWeChat,
+      false);
+
+    document.getElementById('btnCloseWeChatPopup').addEventListener('click',
+    function(){
+      document.getElementById('pageQRCode').style.display = 'none';
+    }, false);
 
     // Logic
     post('render', legcoWeb.lang+'-rendered');
