@@ -5,6 +5,9 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+
+    <base href="/">
+
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -37,15 +40,16 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#/">LegcoMatrix</a>
+            <a class="navbar-brand" href="/">LegcoMatrix</a>
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav">
-              <li ng-class="{ active: isActive('/matrix')}" ><a href="#/matrix">Matrix</a></li>
-              <li ng-class="{ active: isActive('/blog')}" ><a href="#/blog">Blog</a></li>
-              <li ng-class="{ active: isActive('/about')}" ><a href="#/about">About</a></li>
+              <li ng-class="{ active: isActive('/matrix')}" ><a href="/matrix">Pretty Matrix</a></li>
+              <li ng-class="{ active: isActive('/matrix')}" ><a href="/matrix">Matrix</a></li>
+              <li ng-class="{ active: isActive('/blog')}" ><a href="/blog">Blog</a></li>
+              <li ng-class="{ active: isActive('/about')}" ><a href="/about">About</a></li>
             </ul>
           </div>
         </div>
