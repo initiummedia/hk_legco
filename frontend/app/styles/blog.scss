@@ -15,7 +15,11 @@ body {
     font-size: 3em;
   }
 
-  #pageQRCode {
+  #divVideoQRCode {
+    display: none;
+  }
+
+  .divQRCode {
     display: none;
     border: 2px solid #333;
     border-radius: 3px;

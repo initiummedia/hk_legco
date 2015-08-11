@@ -126,7 +126,12 @@ angular.module('frontendApp')
     }
 
     function shareVideoToWeChat() {
-      var divQRCode = document.getElementById('pageQRCode');
+      var divQRCode = document.getElementById('divVideoQRCode');
+      divQRCode.style.display = 'block';
+    }
+
+    function shareArticleToWeChat() {
+      var divQRCode = document.getElementById('divArticleQRCode');
       divQRCode.style.display = 'block';
     }
 
@@ -143,11 +148,28 @@ angular.module('frontendApp')
       shareVideoToWeChat,
       false);
 
-    document.getElementById('btnCloseWeChatPopup').addEventListener('click',
+    document.getElementById('btnCloseWeChatVideoSharePopup').addEventListener('click',
     function(){
-      document.getElementById('pageQRCode').style.display = 'none';
+      document.getElementById('divVideoQRCode').style.display = 'none';
     }, false);
 
+    document.getElementById('shareArticleToFacebookAnchor').addEventListener('click',
+      shareToFacebook($scope.urlToThisPage),
+      false);
+    document.getElementById('shareArticleToWeiboAnchor').addEventListener('click',
+      shareToWeibo($scope.urlToThisPage),
+      false);
+    document.getElementById('shareArticleToTwitterAnchor').addEventListener('click',
+      shareToTwitter($scope.urlToThisPage),
+      false);
+    document.getElementById('shareArticleToWeChatAnchor').addEventListener('click',
+      shareArticleToWeChat,
+      false);
+
+    document.getElementById('btnCloseWeChatArticleSharePopup').addEventListener('click',
+      function(){
+        document.getElementById('divArticleQRCode').style.display = 'none';
+      }, false);
     // Logic
     post('render', legcoWeb.lang+'-rendered');
     legcoWeb.setUUID();

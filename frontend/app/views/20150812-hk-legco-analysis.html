@@ -31,11 +31,18 @@
     </a>
   </div>
 
-  <div id="pageQRCode">
+  <div class="divQRCode" id="divVideoQRCode">
     <h3 class="weChatShareDescription">請用微信二維碼分享：</h3>
     <qrcode data="https://www.youtube.com/watch?v=PIgbvFyOnwA&feature=youtu.be"></qrcode>
     <br />
-    <button id="btnCloseWeChatPopup">關閉</button>
+    <button id="btnCloseWeChatVideoSharePopup">關閉</button>
+  </div>
+
+  <div class="divQRCode" id="divArticleQRCode">
+    <h3 class="weChatShareDescription">請用微信二維碼分享：</h3>
+    <qrcode data="{{urlToThisPage}}"></qrcode>
+    <br />
+    <button id="btnCloseWeChatArticleSharePopup">關閉</button>
   </div>
 
   <div id="mainBox">
@@ -102,6 +109,25 @@
     <p>
     對角線顯示議員對自己動議的支持度，愈支持愈光亮，但這條亮色線之間有一格特別引人注目。民建聯黨魁、行政會議成員李慧琼曾七度對自己的動議案投下反對票。這七次投票發生於2012年2月20至21日，為「辣招」（印花稅草案）其中多條提出修訂，但身為動議者的她卻投下反對票。李慧琼透過助理回覆，因她是相關法案委員會主席，委員會經討論後決定由主席代部分委員提出他們的修訂案，而民建聯的立場是反對有關修訂案，故出現自己的提案自己反的「矛盾大作戰」。
     </p>
+
+    <div id="articleShareDiv">
+      分享全文：
+      <a href=""
+         title="分享到 Facebook"
+         class="shareButton"
+         id="shareArticleToFacebookAnchor">
+        <i class="fa fa-facebook"></i>
+      </a>
+      <a href="" title="分享到 Twitter" class="shareButton" id="shareArticleToTwitterAnchor">
+        <i class="fa fa-twitter"></i>
+      </a>
+      <a href="" title="分享到新浪微博" class="shareButton" id="shareArticleToWeiboAnchor">
+        <i class="fa fa-weibo"></i>
+      </a>
+      <a href="" title="分享到微信" class="shareButton" id="shareArticleToWeChatAnchor">
+        <i class="fa fa-wechat"></i>
+      </a>
+    </div>
 
   </div> <!-- #main -->
 
