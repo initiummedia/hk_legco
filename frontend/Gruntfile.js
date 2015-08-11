@@ -21,6 +21,39 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
 
+  var indexDestinations = [
+    '/',
+    '/matrix-meta',
+    '/home',
+    '/matrix',
+    '/blog',
+    '/blog_hans',
+    '/about',
+    '/play',
+    '/div',
+    '/main',
+    '/20150812-hk-legco-analysis',
+    '/20150812-hk-legco-analysis-hans',
+  ];
+
+  var getIndexCopyConfigs = function(){
+    var configs = [];
+    for (var i=0; i < indexDestinations.length; i++) {
+      var config = {
+        expand: true,
+        flatten : true,
+        cwd : '<%= yeoman.dist %>',
+        dest : '<%= yeoman.dist %>' + indexDestinations[i],
+        src : 'index.html'
+      };
+      configs.push(config);
+    }
+    //console.log(configs);
+    return configs;
+  };
+
+  var indexCopyConfigs = getIndexCopyConfigs();
+
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -394,7 +427,6 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.dist %>/fonts',
           src: 'bower_components/fontawesome/fonts/*'
         }, {
-        }, {
           expand: true,
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
@@ -405,6 +437,9 @@ module.exports = function (grunt) {
           src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
           dest: '<%= yeoman.dist %>'
         }]
+      },
+      indices: {
+        files: indexCopyConfigs
       },
       styles: {
         expand: true,
@@ -490,6 +525,10 @@ module.exports = function (grunt) {
     'karma'
   ]);
 
+  grunt.registerTask('mytest', [
+    'copy:indices'
+  ]);
+
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
@@ -505,7 +544,8 @@ module.exports = function (grunt) {
     'filerev',
     'usemin',
     'htmlmin',
-    'execute:opencc'
+    'execute:opencc',
+    'copy:indices'
   ]);
 
   grunt.registerTask('default', [
