@@ -11,6 +11,8 @@
 angular
   .module('frontendApp', [
     'ngAnimate',
+    'angulartics',
+    'angulartics.google.analytics',
     'ngAria',
     'ngCookies',
     'ngMessages',

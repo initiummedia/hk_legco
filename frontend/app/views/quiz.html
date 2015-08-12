@@ -43,10 +43,15 @@
             回答錯誤！
           </div>
         </div>
-        <div class="explanation col-md-8" ng-show="q.answerFromUser == q.answerIndex">
-          <i class="fa fa-book"></i>
-          小知識：
-            {{ q.explanation }}
+        <div class="" ng-show="q.answerFromUser != -1">
+          <div class="explanation col-md-8" ng-show="q.answerFromUser == q.answerIndex">
+            <i class="fa fa-book"></i>
+            小知識：
+              {{ q.explanation }}
+          </div>
+          <div class="right" ng-show="q.answerFromUser != q.answerIndex">
+            請再嘗試，加油！
+          </div>
         </div>
       </div>
     </div>
