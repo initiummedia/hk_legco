@@ -30,6 +30,10 @@ angular
         templateUrl: 'views/quiz.html',
         controller: 'QuizCtrl'
       })
+      .when('/video', {
+        templateUrl: 'views/video.html',
+        controller: 'VideoCtrl'
+      })
       .when('/matrix-meta', {
         templateUrl: 'views/meta.html',
         controller: 'DivCtrl'
