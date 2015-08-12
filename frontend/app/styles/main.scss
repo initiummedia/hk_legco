@@ -447,6 +447,11 @@ $alpha-arc: 0.8;
   h2 {
     text-align: center;
   }
+  .member {
+    h3 {
+      text-align: center;
+    }
+  }
   .introduction {
     margin: 1em;
     text-align: center;
@@ -465,5 +470,10 @@ $alpha-arc: 0.8;
   }
   .member {
     border: 1px solid darken($grey-base, 10%);
+  }
+  .contributor {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    font-weight: bolder;
   }
 }
