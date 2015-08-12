@@ -60,6 +60,7 @@ angular.module('frontendApp')
     };
 
     $scope.questionID = 0;
+    $scope.showQuizFinishedNotice = false;
 
     $scope.nextQuiz = function(){
       //TODO:
@@ -70,6 +71,9 @@ angular.module('frontendApp')
       $('.quiz').hide();
       $('#quiz-block-' + $scope.questionID).show();
       $scope.questionID += 1;
+      if ($scope.questionID > 3) {
+        $scope.showQuizFinishedNotice = true;
+      }
     };
 
     $timeout(function(){
