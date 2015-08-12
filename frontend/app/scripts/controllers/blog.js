@@ -179,6 +179,7 @@ angular.module('frontendApp')
     var video = document.getElementById('introVideo');
     video.addEventListener('click', function(){
       this.paused?this.play():this.pause();
+      post('video', 'clicked');
     }, false);
 
   });
