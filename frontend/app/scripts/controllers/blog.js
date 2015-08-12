@@ -107,18 +107,20 @@ angular.module('frontendApp')
 
     function shareToWeibo(urlForSharing) {
       return function () {
-        var url = encodeURIComponent(urlForSharing),
-          title = encodeURIComponent('分享：' + legcoWeb.title);
-        window.open('http://service.weibo.com/share/share.php?title=' + title + '&url=' + url);
+        var url = encodeURIComponent(urlForSharing);
+        var title = encodeURIComponent('分享：' + legcoWeb.title);
+        var description = encodeURIComponent(legcoWeb.description);
+        window.open('http://service.weibo.com/share/share.php?title=' + description + '&url=' + url);
         post('share', 'weibo');
       }
     }
 
     function shareToTwitter (urlForSharing) {
       return function () {
-        var url = encodeURIComponent(urlForSharing),
-          title = encodeURIComponent('Share: ' + legcoWeb.title);
-        window.open('https://twitter.com/intent/tweet?text=' + title + url);
+        var url = encodeURIComponent(urlForSharing);
+        var title = encodeURIComponent('Share: ' + legcoWeb.title);
+        var description = encodeURIComponent(legcoWeb.description);
+        window.open('https://twitter.com/intent/tweet?text=' + description + url);
         post('share', 'twitter');
       }
     }
