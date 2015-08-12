@@ -16,11 +16,21 @@ angular.module('frontendApp')
       return viewLocation === $location.path();
     };
     //$scope.showHeader = false;
-    if ($location.path() === '/blog' || $location.path() === '/20150812-hk-legco-analysis') {
+    if ([
+        '/blog',
+        '/blog/',
+        '/blog-hans',
+        '/blog-hans/',
+        '/20150812-hk-legco-analysis',
+        '/20150812-hk-legco-analysis/',
+        '/20150812-hk-legco-analysis-hans',
+        '/20150812-hk-legco-analysis-hans/'
+      ].indexOf($location.path()) != -1) {
       $scope.showHeader = false;
     } else {
       $scope.showHeader = true;
-    }
+    };
+    console.log('path:' + $location.path() + '|');
 
     var pathScheme = $('meta[name="pathScheme"]').first().attr('content');
     $scope.getRealPath = function(path){
