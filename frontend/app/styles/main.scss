@@ -352,6 +352,48 @@ $alpha-arc: 0.8;
   }
   .answer {
     //visibility: hidden;
+    .glyphicon.glyphicon-remove {
+      animation-name: shake-horizontal;
+      animation-duration: 0.5s;
+      animation-iteration-count: 2;
+    }
+    @keyframes shake-horizontal {
+      0% {
+        left: 0em;
+      }
+      25% {
+        left: 0.5em;
+      }
+      75% {
+        left: -0.5em;
+      }
+      100% {
+        left: 0em;
+      }
+    }
+
+    .glyphicon.glyphicon-ok {
+      animation-name: shake-vertical;
+      animation-duration: 0.5s;
+      animation-iteration-count: 1;
+    }
+    @keyframes shake-vertical {
+      0% {
+        left: -1em;
+      }
+      25% {
+        left: -0.75em;
+        top: 0.25em;
+      }
+      50% {
+        left: 0em;
+        top: -1em;
+      }
+      100% {
+        left: 0em;
+        top: 0em;
+      }
+    }
   }
   .explanation {
     //visibility: hidden;

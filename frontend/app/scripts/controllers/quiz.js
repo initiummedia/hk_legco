@@ -45,6 +45,10 @@ angular.module('frontendApp')
 
     $scope.quizFinished = false;
     $scope.updateQuizStatus = function(){
+      $scope.showAnswer = false;
+      $timeout(function(){
+        $scope.showAnswer = true;
+      }, 200);
       $timeout(function(){
         $scope.quizFinished = _.reduce($scope.quizes, function(a, b){
           return a && (b['answerFromUser'] != -1 && b['answerFromUser'] == b['answerIndex']);
@@ -55,7 +59,7 @@ angular.module('frontendApp')
           });
         }
       }, 300);
-    }
+    };
 
     //for (var i = 0; i < $scope.quizes.length; i++) {
     //  ngDialog.open({
