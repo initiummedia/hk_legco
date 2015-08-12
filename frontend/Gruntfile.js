@@ -27,7 +27,7 @@ module.exports = function (grunt) {
     '/home',
     '/matrix',
     '/blog',
-    '/blog_hans',
+    '/blog-hans',
     '/about',
     '/play',
     '/div',
