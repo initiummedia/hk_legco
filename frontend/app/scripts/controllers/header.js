@@ -11,7 +11,7 @@
 // Ref:
 //     http://stackoverflow.com/questions/16199418/how-do-i-implement-the-bootstrap-navbar-active-class-with-angular-js
 angular.module('frontendApp')
-  .controller('HeaderCtrl', ['$scope', '$location', function ($scope, $location) {
+  .controller('HeaderCtrl', ['$scope', '$location', 'LegcoConfig', function ($scope, $location, LegcoConfig) {
     $scope.isActive = function (viewLocation){
       return viewLocation === $location.path();
     };
@@ -33,15 +33,6 @@ angular.module('frontendApp')
     $scope.showHeader = true;
     //console.log('path:' + $location.path() + '|');
 
-    var pathScheme = $('meta[name="pathScheme"]').first().attr('content');
-    var baseURL = $('base').first().attr('href');
-    $scope.getRealPath = function(path){
-      var rp = baseURL + pathScheme + path;
-      if (rp === '//') {
-        rp = '/';
-      }
-      return rp;
-    };
-    console.log('pathScheme: ' + pathScheme);
+    $scope.getRealPath = LegcoConfig.getRealPath;
 
   }]);

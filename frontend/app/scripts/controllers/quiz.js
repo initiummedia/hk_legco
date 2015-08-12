@@ -8,7 +8,7 @@
  * Controller of the frontendApp
  */
 angular.module('frontendApp')
-  .controller('QuizCtrl', function ($rootScope, $scope, $timeout, ngDialog) {
+  .controller('QuizCtrl', function ($rootScope, $scope, $timeout, ngDialog, LegcoConfig) {
 
     //// TODO: probably there is a better global position for this?
     //$rootScope.$on("$locationChangeStart", function(event, next, current) {
@@ -86,5 +86,7 @@ angular.module('frontendApp')
     //    scope: $scope
     //  });
     //}
+
+    $scope.getRealPath = LegcoConfig.getRealPath;
 
   });
