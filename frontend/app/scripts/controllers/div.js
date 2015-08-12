@@ -50,18 +50,13 @@ angular.module('frontendApp')
           //+ linearCombination('ee', '00', percentage)
           //+ linearCombination('ee', '00', percentage);
           // Initium blue darken 20%
-          + linearCombination('00', '00', percentage)
-          + linearCombination('48', 'ff', percentage)
-          + linearCombination('46', 'ff', percentage);
+          + linearCombination('ee', '1C', percentage)
+          + linearCombination('ee', '64', percentage)
+          + linearCombination('ee', '6D', percentage);
           ////   Initium + Legco
           //+ linearCombination('31', '2C', percentage)
           //+ linearCombination('AF', '02', percentage)
           //+ linearCombination('BE', '54', percentage);
-
-          ////   Initium final version
-          //+ linearCombination('ee', '1C', percentage)
-          //+ linearCombination('ee', '64', percentage)
-          //+ linearCombination('ee', '6D', percentage);
     };
 
     // generate Legends
