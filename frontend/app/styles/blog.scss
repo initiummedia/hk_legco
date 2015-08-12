@@ -133,9 +133,15 @@ body {
 
     #credits {
 
+      margin-top: 2em;
+
       text-justify: auto;
 
       font-size: 0.8em;
+
+      #creditTitle {
+        text-decoration: underline;
+      }
 
       .contributorName {
         margin-right: 0.8em;
