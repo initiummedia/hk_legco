@@ -23,8 +23,8 @@
 
     <div class="quiz alert" ng-class="{'alert-success': (q.answerFromUser != -1) && q.answerIndex == q.answerFromUser,
                                       'alert-danger': (q.answerFromUser != -1) && (q.answerIndex != q.answerFromUser)}
-                                    " ng-repeat="q in quizes">
-      <h2>Q: {{ q.question }}</h2>
+                                    " ng-repeat="q in quizes track by $index">
+      <h2>Q{{ $index+1 }}: {{ q.question }}</h2>
       <ul class="choices">
         <li ng-repeat="c in q.choices track by $index">
           <!-- {{ $index }} - {{ c }} -->
