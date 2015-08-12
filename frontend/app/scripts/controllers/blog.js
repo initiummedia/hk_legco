@@ -24,7 +24,8 @@ angular.module('frontendApp')
     };
 
     legcoWeb.generalTitle = document.getElementById('generalTitle');
-    if (generalTitle.innerText === '廿一世紀立會網絡') {
+    console.log(generalTitle.innerText);
+    if (generalTitle.innerHTML === '廿一世紀立會網絡') {
       legcoWeb.lang = 'hant';
       legcoWeb.title = "廿一世紀立會網絡";
       legcoWeb.description = "端傳媒數據報道：香港第五屆立法會投票分析";
