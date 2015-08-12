@@ -28,12 +28,12 @@ angular.module('frontendApp')
     if (generalTitle.innerHTML === '廿一世紀立會網絡') {
       legcoWeb.lang = 'hant';
       legcoWeb.title = "廿一世紀立會網絡";
-      legcoWeb.description = "端傳媒數據報道：香港第五屆立法會投票分析";
+      legcoWeb.description = "端傳媒「一圖看懂香港立法會」，泛民制一目了然。有人不提案，也有人投自己反對票。漲知識啊";
       legcoWeb.url = 'http://legco.initiumlab.com/20150812-hk-legco-analysis';
     } else {
       legcoWeb.lang = 'hans';
       legcoWeb.title = "廿一世纪立会网络";
-      legcoWeb.description = "端传媒数据报道：香港第五届立法会投票分析";
+      legcoWeb.description = "端传媒「一图看懂香港立法会」，泛民制一目了然。有人不提桉，也有人投自己反对票。涨知识啊";
       legcoWeb.url = 'http://legco.initiumlab.com/20150812-hk-legco-analysis-hans';
     }
 
