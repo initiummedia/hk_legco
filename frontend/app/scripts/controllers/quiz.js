@@ -41,8 +41,6 @@ angular.module('frontendApp')
       $scope.quizes[i]['answerFromUser'] = -1;
     }
 
-    $scope.questionID = 0;
-
     $scope.quizFinished = false;
     $scope.updateQuizStatus = function(){
       $scope.showAnswer = false;
@@ -50,16 +48,33 @@ angular.module('frontendApp')
         $scope.showAnswer = true;
       }, 200);
       $timeout(function(){
-        $scope.quizFinished = _.reduce($scope.quizes, function(a, b){
-          return a && (b['answerFromUser'] != -1 && b['answerFromUser'] == b['answerIndex']);
-        }, true);
-        if ($scope.quizFinished) {
-          ngDialog.open({
-            template: 'finishedDialog'
-          });
-        }
+        //$scope.quizFinished = _.reduce($scope.quizes, function(a, b){
+        //  return a && (b['answerFromUser'] != -1 && b['answerFromUser'] == b['answerIndex']);
+        //}, true);
+        //if ($scope.quizFinished) {
+        //  ngDialog.open({
+        //    template: 'finishedDialog'
+        //  });
+        //}
       }, 300);
     };
+
+    $scope.questionID = 0;
+
+    $scope.nextQuiz = function(){
+      //TODO:
+      //    Clear up the logics in an Angular way.
+      //    Historically, we show all the questions on one page.
+      //    The following is adapted from old code.
+      console.log($scope.questionID);
+      $('.quiz').hide();
+      $('#quiz-block-' + $scope.questionID).show();
+      $scope.questionID += 1;
+    };
+
+    $timeout(function(){
+      $scope.nextQuiz();
+    }, 200);
 
     //for (var i = 0; i < $scope.quizes.length; i++) {
     //  ngDialog.open({
