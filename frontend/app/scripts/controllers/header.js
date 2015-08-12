@@ -31,12 +31,16 @@ angular.module('frontendApp')
     //  $scope.showHeader = true;
     //};
     $scope.showHeader = true;
-    console.log('path:' + $location.path() + '|');
+    //console.log('path:' + $location.path() + '|');
 
     var pathScheme = $('meta[name="pathScheme"]').first().attr('content');
     var baseURL = $('base').first().attr('href');
     $scope.getRealPath = function(path){
-      return baseURL + pathScheme + path;
+      var rp = baseURL + pathScheme + path;
+      if (rp === '//') {
+        rp = '/';
+      }
+      return rp;
     };
     console.log('pathScheme: ' + pathScheme);
 
