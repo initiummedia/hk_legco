@@ -37,9 +37,6 @@ angular.module('frontendApp')
       legcoWeb.url = 'http://legco.initiumlab.com/20150812-hk-legco-analysis-hans';
     }
 
-    //DEBUG
-    legcoWeb.url = 'http://968c55c6.ngrok.io/';
-
     legcoWeb.setUUID = function() {
 
       // If localStorage contains an existing UUID, use it as the UUID of the app.
@@ -129,11 +126,13 @@ angular.module('frontendApp')
     function shareVideoToWeChat() {
       var divQRCode = document.getElementById('divVideoQRCode');
       divQRCode.style.display = 'block';
+      post('share', 'wechat');
     }
 
     function shareArticleToWeChat() {
       var divQRCode = document.getElementById('divArticleQRCode');
       divQRCode.style.display = 'block';
+      post('share', 'wechat');
     }
 
     document.getElementById('shareVideoToFacebookAnchor').addEventListener('click',
@@ -172,8 +171,8 @@ angular.module('frontendApp')
         document.getElementById('divArticleQRCode').style.display = 'none';
       }, false);
     // Logic
-    post('render', legcoWeb.lang+'-rendered');
     legcoWeb.setUUID();
+    post('render', legcoWeb.lang+'-rendered');
 
     // Enable click-to-play for videos
     var video = document.getElementById('introVideo');
