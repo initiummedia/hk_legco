@@ -34,8 +34,9 @@ angular.module('frontendApp')
     console.log('path:' + $location.path() + '|');
 
     var pathScheme = $('meta[name="pathScheme"]').first().attr('content');
+    var baseURL = $('base').first().attr('href');
     $scope.getRealPath = function(path){
-      return pathScheme + path;
+      return baseURL + pathScheme + path;
     };
     console.log('pathScheme: ' + pathScheme);
 
