@@ -110,15 +110,27 @@ angular.module('frontendApp')
       },
       {
         name: '立法會重要表決記錄',
-        author: 'author',
+        author: 'TBD',
         status: 'Active',
         outcome: 'Website',
-        data: ['Hansard', 'Vote'],
+        data: ['Vote'],
         language: '',
         link: {
-          'Website': 'www.legcovotes.net/'
+          'Website': 'http://www.legcovotes.net/'
         }
       },
+      {
+        name: '立法會重要表決記錄（App）',
+        author: 'Allen Chan',
+        status: 'Active',
+        outcome: 'Android App',
+        data: ['Vote'],
+        language: '',
+        link: {
+          'Android': 'https://play.google.com/store/apps/details?id=com.siulun.LegcoVotes&hl=zh_HK'
+        }
+      },
+
     ];
   }]);
 
