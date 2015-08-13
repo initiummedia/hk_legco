@@ -30,7 +30,9 @@ angular.module('frontendApp')
         status: 'Active',
         outcome: 'Parser, DB',
         language: 'Python',
-        link: 'https://github.com/chainsawriot/legcowatch'
+        link: {
+          'GitHub': 'https://github.com/chainsawriot/legcowatch'
+        }
       },
       {
         name: 'R-hklegcovote',
@@ -38,7 +40,9 @@ angular.module('frontendApp')
         status: '',
         outcome: '2D Plot',
         language: 'R',
-        link: 'https://github.com/yellowcandle/R-hklegcovote'
+        link: {
+          'GitHub': 'https://github.com/yellowcandle/R-hklegcovote'
+        }
       },
       {
         name: 'Legco Spectrum',
@@ -46,7 +50,10 @@ angular.module('frontendApp')
         status: 'Published, Inactive',
         outcome: 'Spectrum',
         language: 'Python',
-        link: 'https://github.com/code4hk/legcohk'
+        link: {
+          'Blog': 'http://blog.code4.hk/open%20data/2014/04/26/legco-votes-analysis/',
+          'GitHub': 'https://github.com/code4hk/legcohk'
+        }
       },
       {
         name: 'Legco Watch',
@@ -54,7 +61,9 @@ angular.module('frontendApp')
         status: 'Inactive',
         outcome: 'Parser, API',
         language: 'Python',
-        link: 'https://github.com/legco-watch/legco-watch'
+        link: {
+          'GitHub': 'https://github.com/legco-watch/legco-watch'
+        }
       },
       {
         name: 'Legco Scraper',
@@ -63,7 +72,9 @@ angular.module('frontendApp')
         outcome: 'Scraper',
         data: ['Member Profile'],
         language: 'Ruby',
-        link: 'https://github.com/kenyiu/Legco-Scraper'
+        link: {
+          'GitHub': 'https://github.com/kenyiu/Legco-Scraper'
+        }
       },
       {
         name: 'Legco Hansard Parser',
@@ -72,7 +83,20 @@ angular.module('frontendApp')
         outcome: 'Parser, API, Frontend',
         data: ['Hansard'],
         language: 'Ruby',
-        link: 'https://github.com/siuying/legco-hansard-parser'
+        link: {
+          'GitHub': 'https://github.com/siuying/legco-hansard-parser'
+        }
+      },
+      {
+        name: '立法會重要表決記錄',
+        author: 'author',
+        status: 'Active',
+        outcome: 'Website',
+        data: ['Hansard', 'Vote'],
+        language: '',
+        link: {
+          'Website': 'www.legcovotes.net/'
+        }
       },
     ];
   }]);

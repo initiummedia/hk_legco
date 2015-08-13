@@ -211,7 +211,9 @@
           <td>{{ project.language }}</td>
           <td>{{ project.outcome }}</td>
           <td>
-            <a href="{{ project.link }}">URL</a>
+            <p ng-repeat="(k, v) in project.link">
+              <a href="{{ v }}">{{ k }}</a>
+            </p>
           </td>
         </tr>
 
