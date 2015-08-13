@@ -24,6 +24,17 @@ angular.module('frontendApp')
       //  outcome: 'coutcome',
       //  link: 'link'
       //}
+
+      {
+        name: '香港立法會',
+        author: '香港立法會',
+        status: 'Active',
+        outcome: '',
+        language: '',
+        link: {
+          'Website': 'http://www.legco.gov.hk/'
+        }
+      },
       {
         name: 'legcowatch',
         author: 'Fuk Chan',
@@ -63,6 +74,16 @@ angular.module('frontendApp')
         language: 'Python',
         link: {
           'GitHub': 'https://github.com/legco-watch/legco-watch'
+        }
+      },
+      {
+        name: '香港立法會議員投票動態網絡',
+        author: 'Cyrus Wong',
+        status: 'Published',
+        outcome: 'Network; Video',
+        language: 'N.A.',
+        link: {
+          'Youtube': 'https://www.youtube.com/watch?v=gj4E6OW01k4'
         }
       },
       {
