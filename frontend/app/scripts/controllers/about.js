@@ -15,5 +15,15 @@ angular.module('frontendApp')
       'Karma'
     ];
     console.log($location.path());
+
+    $scope.projects = [
+      {
+        name: 'name',
+        author: 'author',
+        status: 'status',
+        outcome: 'coutcome',
+        link: 'link'
+      }
+    ];
   }]);
 
