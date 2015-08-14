@@ -10,3 +10,6 @@
 [submodule "third/legco-hansard-siuying"]
 	path = third/legco-hansard-siuying
 	url = git@github.com:siuying/legco-hansard-parser.git
+[submodule "frontend/app/api/hk-legco-pointers"]
+	path = frontend/app/api/hk-legco-pointers
+	url = git@github.com:initiummedia/hk-legco-pointers.git

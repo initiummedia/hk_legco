@@ -116,7 +116,7 @@ angular.module('frontendApp')
 
     $scope.currentStep = 0;
 
-    var script_url = 'https://spreadsheets.google.com/feeds/list/1s2CkDX0sMaZHzHjl_hbJs8DkyUAca08enU1te3aEPUU/od6/public/values?alt=json';
+    var script_url = 'api/navigation-data.json';
     $http.get(script_url).success(function(data){
       console.log(data);
       $scope.stories = _.map(data.feed.entry, function(v){
