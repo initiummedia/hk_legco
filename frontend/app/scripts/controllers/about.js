@@ -42,7 +42,7 @@ angular.module('frontendApp')
         outcome: 'Parser, DB',
         language: 'Python',
         link: {
-          'GitHub': 'https://github.com/chainsawriot/legcowatch'
+          'GitHub': 'https://github.com/chainsawriot/legcowatch',
         }
       },
       {
@@ -73,7 +73,8 @@ angular.module('frontendApp')
         outcome: 'Parser, API',
         language: 'Python',
         link: {
-          'GitHub': 'https://github.com/legco-watch/legco-watch'
+          'GitHub': 'https://github.com/legco-watch/legco-watch',
+          'Google Group': 'https://groups.google.com/forum/#!newtopic/legco-watch'
         }
       },
       {
