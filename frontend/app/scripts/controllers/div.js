@@ -8,7 +8,7 @@
  * Controller of the frontendApp
  */
 angular.module('frontendApp')
-  .controller('DivCtrl', ['$rootScope', '$scope', '$http', function ($rootScope, $scope, $http) {
+  .controller('DivCtrl', ['$rootScope', '$scope', '$http', 'LegcoApi', function ($rootScope, $scope, $http, LegcoApi) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -76,48 +76,56 @@ angular.module('frontendApp')
     //$scope.rangeMovers = _.range(1, 82);
     //$scope.rangeVoters = _.range(1, 70);
 
-    $http.get('api/transdict-mover.json').success(function(data){
-      $scope.isLoadingTransDictMover = false;
-      $scope.transDictMover = data;
-      $scope.rangeMovers = _.range(1, Object.keys($scope.transDictMover).length + 1);
-    }).error(function(data){
-      console.log('loading failure');
-    });
+    LegcoApi.get('transdict-mover.json',
+      function(data){
+        $scope.isLoadingTransDictMover = false;
+        $scope.transDictMover = data;
+        $scope.rangeMovers = _.range(1, Object.keys($scope.transDictMover).length + 1);
+      },
+      function(data){
+        console.log('loading failure');
+      }
+    );
 
-    $http.get('api/transdict-voter.json').success(function(data){
-      $scope.isLoadingTransDictVoter = false;
-      $scope.transDictVoter = data;
-      $scope.rangeVoters = _.range(1, Object.keys($scope.transDictVoter).length + 1);
-    }).error(function(data){
-      console.log('loading failure');
-    });
+    LegcoApi.get('transdict-voter.json',
+      function(data){
+        $scope.isLoadingTransDictVoter = false;
+        $scope.transDictVoter = data;
+        $scope.rangeVoters = _.range(1, Object.keys($scope.transDictVoter).length + 1);
+      },
+      function(data){
+        console.log('loading failure');
+      }
+    );
 
-    $http.get('api/mv-relation.json').success(function(data){
-      $scope.isLoadingMVRelation = false;
-      $scope.mvRelation = data;
-      for (var i=0; i<$scope.mvRelation.length; i++) {
-        for (var j=0; j<$scope.mvRelation[i].length; j++) {
-          var value = $scope.mvRelation[i][j];
-          var valuePercentage = Math.round(value * 100);
-          var color = 'black';
-          if (value < 0.5) {
-            color = 'white';
-          }
-          $scope.mvRelation[i][j] = {
-            value: value,
-            valuePercentage: valuePercentage,
-            color: generateGradient(value)
+    LegcoApi.get('mv-relation.json',
+      function(data){
+        $scope.isLoadingMVRelation = false;
+        $scope.mvRelation = data;
+        for (var i=0; i<$scope.mvRelation.length; i++) {
+          for (var j=0; j<$scope.mvRelation[i].length; j++) {
+            var value = $scope.mvRelation[i][j];
+            var valuePercentage = Math.round(value * 100);
+            var color = 'black';
+            if (value < 0.5) {
+              color = 'white';
+            }
+            $scope.mvRelation[i][j] = {
+              value: value,
+              valuePercentage: valuePercentage,
+              color: generateGradient(value)
+            }
           }
         }
+      },
+      function(data){
+        console.log('loading failure');
       }
-    }).error(function(data){
-      console.log('loading failure');
-    });
+    );
 
     $scope.currentStep = 0;
 
-    var script_url = 'api/navigation-data.json';
-    $http.get(script_url).success(function(data){
+    var drawMatrix = function(data){
       console.log(data);
       $scope.stories = _.map(data.feed.entry, function(v){
         // Do not process. just use the gsx$ notation
@@ -267,8 +275,13 @@ angular.module('frontendApp')
 
       $scope.tour = tour;
 
-    }).error(function(data){
-      console.log('loading failure');
-    });
+    };
+
+    LegcoApi.get('navigation-data.json',
+      drawMatrix,
+      function(data){
+        console.log('loading failure');
+      }
+    );
 
   }]);
