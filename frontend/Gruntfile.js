@@ -23,6 +23,7 @@ module.exports = function (grunt) {
 
   var indexDestinations = [
     '/',
+    '/quiz',
     '/video',
     '/matrix-meta',
     '/home',
