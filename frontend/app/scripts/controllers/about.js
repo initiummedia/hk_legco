@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * @ngdoc function
@@ -7,8 +7,7 @@
  * # AboutCtrl
  * Controller of the frontendApp
  */
-(function(){
-
+;(function () {
   angular.module('frontendApp')
     .controller('AboutCtrl', ['$scope', '$location', '$http', function ($scope, $location, $http) {
       $scope.awesomeThings = [
@@ -18,11 +17,11 @@
       ]
       console.log($location.path())
 
-      var url='api/hk-legco-pointers/hk-legco-pointers.json'
-      $http.get(url).success(function(data){
+      var url = 'api/hk-legco-pointers/hk-legco-pointers.json'
+      $http.get(url).success(function (data) {
         console.log('Get projects success')
         $scope.projects = data
-      }).error(function(){
+      }).error(function () {
         console.log('Get projects error')
       })
 

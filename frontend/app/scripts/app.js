@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * @ngdoc overview
@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 
-(function () {
+;(function () {
   var angular = window.angular
   var $ = window.$
   angular

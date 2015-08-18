@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * @ngdoc function
@@ -7,15 +7,14 @@
  * # QuizCtrl
  * Controller of the frontendApp
  */
-(function(){
+;(function () {
   angular.module('frontendApp')
     .controller('QuizCtrl', function ($rootScope, $scope, $timeout, ngDialog, LegcoConfig) {
-
-      //// TODO: probably there is a better global position for this?
-      //$rootScope.$on("$locationChangeStart", function(event, next, current) {
+      // // TODO: probably there is a better global position for this?
+      // $rootScope.$on("$locationChangeStart", function(event, next, current) {
       //  console.log("location changing to:" + next)
       //  ngDialog.close()
-      //})
+      // })
 
       $scope.quizes = [
         {
@@ -38,33 +37,33 @@
         }
       ]
 
-      for (var i = 0; i < $scope.quizes.length; i ++) {
+      for (var i = 0; i < $scope.quizes.length; i++) {
         $scope.quizes[i]['answerFromUser'] = -1
       }
 
       $scope.quizFinished = false
-      $scope.updateQuizStatus = function(){
+      $scope.updateQuizStatus = function () {
         $scope.showAnswer = false
-        $timeout(function(){
+        $timeout(function () {
           $scope.showAnswer = true
         }, 200)
-        $timeout(function(){
-          //$scope.quizFinished = _.reduce($scope.quizes, function(a, b){
+        $timeout(function () {
+          // $scope.quizFinished = _.reduce($scope.quizes, function(a, b){
           //  return a && (b['answerFromUser'] != -1 && b['answerFromUser'] == b['answerIndex'])
-          //}, true)
-          //if ($scope.quizFinished) {
+          // }, true)
+          // if ($scope.quizFinished) {
           //  ngDialog.open({
           //    template: 'finishedDialog'
           //  })
-          //}
+          // }
         }, 300)
       }
 
       $scope.questionID = 0
       $scope.showQuizFinishedNotice = false
 
-      $scope.nextQuiz = function(){
-        //TODO:
+      $scope.nextQuiz = function () {
+        // TODO:
         //    Clear up the logics in an Angular way.
         //    Historically, we show all the questions on one page.
         //    The following is adapted from old code.
@@ -77,16 +76,16 @@
         }
       }
 
-      $timeout(function(){
+      $timeout(function () {
         $scope.nextQuiz()
       }, 200)
 
-      //for (var i = 0 i < $scope.quizes.length i++) {
+      // for (var i = 0 i < $scope.quizes.length i++) {
       //  ngDialog.open({
       //    template: 'quiz-template',
       //    scope: $scope
       //  })
-      //}
+      // }
 
       $scope.getRealPath = LegcoConfig.getRealPath
 

@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * @ngdoc function
@@ -7,7 +7,7 @@
  * # HomeCtrl
  * Controller of the frontendApp
  */
-(function(){
+;(function () {
   angular.module('frontendApp')
     .controller('HomeCtrl', function ($scope) {
       $scope.awesomeThings = [
