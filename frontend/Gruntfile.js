@@ -10,16 +10,16 @@
 module.exports = function (grunt) {
 
   // Load grunt tasks automatically
-  require('load-grunt-tasks')(grunt);
+  require('load-grunt-tasks')(grunt)
 
   // Time how long tasks take. Can help when optimizing build times
-  require('time-grunt')(grunt);
+  require('time-grunt')(grunt)
 
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
     dist: 'dist'
-  };
+  }
 
   var indexDestinations = [
     '/',
@@ -36,10 +36,10 @@ module.exports = function (grunt) {
     '/main',
     '/20150812-hk-legco-analysis',
     '/20150812-hk-legco-analysis-hans',
-  ];
+  ]
 
   var getIndexCopyConfigs = function(){
-    var configs = [];
+    var configs = []
     for (var i=0; i < indexDestinations.length; i++) {
       var config = {
         expand: true,
@@ -47,14 +47,14 @@ module.exports = function (grunt) {
         cwd : '<%= yeoman.dist %>',
         dest : '<%= yeoman.dist %>' + indexDestinations[i],
         src : 'index.html'
-      };
-      configs.push(config);
+      }
+      configs.push(config)
     }
-    //console.log(configs);
-    return configs;
-  };
+    //console.log(configs)
+    return configs
+  }
 
-  var indexCopyConfigs = getIndexCopyConfigs();
+  var indexCopyConfigs = getIndexCopyConfigs()
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -129,7 +129,7 @@ module.exports = function (grunt) {
                 connect.static('./app/styles')
               ),
               connect.static(appConfig.app)
-            ];
+            ]
           }
         }
       },
@@ -145,7 +145,7 @@ module.exports = function (grunt) {
                 connect.static('./bower_components')
               ),
               connect.static(appConfig.app)
-            ];
+            ]
           }
         }
       },
@@ -536,12 +536,12 @@ module.exports = function (grunt) {
       }
     }
 
-  });
+  })
 
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
-      return grunt.task.run(['build', 'connect:dist:keepalive']);
+      return grunt.task.run(['build', 'connect:dist:keepalive'])
     }
 
     grunt.task.run([
@@ -551,13 +551,13 @@ module.exports = function (grunt) {
       'autoprefixer:server',
       'connect:livereload',
       'watch'
-    ]);
-  });
+    ])
+  })
 
   grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
-    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-    grunt.task.run(['serve:' + target]);
-  });
+    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.')
+    grunt.task.run(['serve:' + target])
+  })
 
   grunt.registerTask('test', [
     'clean:server',
@@ -566,11 +566,11 @@ module.exports = function (grunt) {
     'autoprefixer',
     'connect:test',
     'karma'
-  ]);
+  ])
 
   grunt.registerTask('mytest', [
     'copy:indices'
-  ]);
+  ])
 
   grunt.registerTask('build', [
     'clean:dist',
@@ -589,26 +589,26 @@ module.exports = function (grunt) {
     'htmlmin',
     'execute:opencc',
     'copy:index',
-  ]);
+  ])
 
   grunt.registerTask('deploy:prod', [
     'targethtml:prod',
     'copy:indices',
     'gh-pages'
-  ]);
+  ])
 
   grunt.registerTask('deploy:staging', [
     'targethtml:staging',
     'copy:indices',
     'rsync:showcase'
-  ]);
+  ])
 
   grunt.registerTask('default', [
     'newer:standard',
     'test',
     'build'
-  ]);
+  ])
 
-  grunt.loadNpmTasks('grunt-execute');
-  grunt.loadNpmTasks('grunt-standard');
-};
+  grunt.loadNpmTasks('grunt-execute')
+  grunt.loadNpmTasks('grunt-standard')
+}
