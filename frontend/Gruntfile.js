@@ -524,7 +524,16 @@ module.exports = function (grunt) {
       opencc: {
         src: ['utils/s2t.js']
       }
+    },
+
+    standard: {
+      app: {
+        src: [
+          '<%= yeoman.app %>/scripts/**/*.js'
+        ]
+      }
     }
+
   });
 
 
@@ -593,10 +602,11 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'newer:jshint',
+    'newer:standard',
     'test',
     'build'
   ]);
 
   grunt.loadNpmTasks('grunt-execute');
+  grunt.loadNpmTasks('grunt-standard');
 };
