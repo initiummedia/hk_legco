@@ -44,5 +44,11 @@
   },
   "scripts": {
     "test": "grunt test"
+  },
+  "standard": {
+    "ignore": [
+      "bower_components/",
+      "app/styles/"
+    ]
   }
 }
