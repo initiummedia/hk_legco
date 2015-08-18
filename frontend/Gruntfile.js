@@ -1,5 +1,5 @@
 // Generated on 2015-07-01 using generator-angular 0.11.1
-'use strict';
+'use strict'
 
 // # Globbing
 // for performance reasons we're only matching one level down:
@@ -8,7 +8,6 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
-
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt)
 
@@ -35,22 +34,22 @@ module.exports = function (grunt) {
     '/div',
     '/main',
     '/20150812-hk-legco-analysis',
-    '/20150812-hk-legco-analysis-hans',
+    '/20150812-hk-legco-analysis-hans'
   ]
 
-  var getIndexCopyConfigs = function(){
+  var getIndexCopyConfigs = function () {
     var configs = []
-    for (var i=0; i < indexDestinations.length; i++) {
+    for (var i = 0; i < indexDestinations.length; i++) {
       var config = {
         expand: true,
-        flatten : true,
-        cwd : '<%= yeoman.dist %>',
-        dest : '<%= yeoman.dist %>' + indexDestinations[i],
-        src : 'index.html'
+        flatten: true,
+        cwd: '<%= yeoman.dist %>',
+        dest: '<%= yeoman.dist %>' + indexDestinations[i],
+        src: 'index.html'
       }
       configs.push(config)
     }
-    //console.log(configs)
+    // console.log(configs)
     return configs
   }
 
@@ -58,7 +57,6 @@ module.exports = function (grunt) {
 
   // Define the configuration for all the tasks
   grunt.initConfig({
-
     // Project settings
     yeoman: appConfig,
 
@@ -84,7 +82,7 @@ module.exports = function (grunt) {
       },
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
-        //tasks: ['newer:jshint:test', 'karma']
+        // tasks: ['newer:jshint:test', 'karma']
         tasks: ['newer:standard', 'karma']
       },
       compass: {
@@ -199,7 +197,7 @@ module.exports = function (grunt) {
       },
       server: {
         options: {
-          map: true,
+          map: true
         },
         files: [{
           expand: true,
@@ -222,23 +220,23 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
-        ignorePath:  /\.\.\//
+        ignorePath: /\.\.\//
       },
       test: {
         devDependencies: true,
         src: '<%= karma.unit.configFile %>',
-        ignorePath:  /\.\.\//,
-        fileTypes:{
+        ignorePath: /\.\.\//,
+        fileTypes: {
           js: {
             block: /(([\s\t]*)\/{2}\s*?bower:\s*?(\S*))(\n|\r|.)*?(\/{2}\s*endbower)/gi,
-              detect: {
-                js: /'(.*\.js)'/gi
-              },
-              replace: {
-                js: '\'{{filePath}}\','
-              }
+            detect: {
+              js: /'(.*\.js)'/gi
+            },
+            replace: {
+              js: "'{{filePath}}',"
             }
           }
+        }
       },
       sass: {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
@@ -427,7 +425,7 @@ module.exports = function (grunt) {
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*',
-            'api/**',
+            'api/**'
           ]
         }, {
           expand: true,
@@ -475,15 +473,15 @@ module.exports = function (grunt) {
 
     rsync: {
       options: {
-        args: ["--verbose", "--delete"],
-        exclude: [".git*","*.scss","node_modules"],
+        args: ['--verbose', '--delete'],
+        exclude: ['.git*', '*.scss', 'node_modules'],
         recursive: true
       },
       showcase: {
         options: {
-          src: "./dist/",
-          dest: "/home/vagrant/web/legco",
-          host: "showcase",
+          src: './dist/',
+          dest: '/home/vagrant/web/legco',
+          host: 'showcase',
           delete: true // Careful this option could cause data loss, read the docs!
         }
       }
@@ -538,7 +536,6 @@ module.exports = function (grunt) {
 
   })
 
-
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive'])
@@ -588,7 +585,7 @@ module.exports = function (grunt) {
     'usemin',
     'htmlmin',
     'execute:opencc',
-    'copy:index',
+    'copy:index'
   ])
 
   grunt.registerTask('deploy:prod', [

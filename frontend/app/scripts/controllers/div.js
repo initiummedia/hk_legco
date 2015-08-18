@@ -10,6 +10,8 @@
 ;(function () {
   var angular = window.angular
   var $ = window.$
+  var _ = window._
+  var Shepherd = window.Shepherd
   angular.module('frontendApp')
     .controller('DivCtrl', ['$rootScope', '$scope', '$http', 'LegcoApi', function ($rootScope, $scope, $http, LegcoApi) {
       $scope.awesomeThings = [
@@ -109,10 +111,6 @@
             for (var j = 0; j < $scope.mvRelation[i].length; j++) {
               var value = $scope.mvRelation[i][j]
               var valuePercentage = Math.round(value * 100)
-              var color = 'black'
-              if (value < 0.5) {
-                color = 'white'
-              }
               $scope.mvRelation[i][j] = {
                 value: value,
                 valuePercentage: valuePercentage,
@@ -159,13 +157,13 @@
         var getStyleInfo = function (styleName) {
           var a = $('#style-info #' + styleName).css('font-size')
           // console.log(a)
-          return parseInt(a.substr(0, a.length - 2))
+          return parseInt(a.substr(0, a.length - 2), 10)
         }
 
         // refer to main.scss to sync parameters
         var cellSize = getStyleInfo('cell-size')
         var cellSpacing = getStyleInfo('cell-spacing')
-        var fontSize = getStyleInfo('font-size')
+        // var fontSize = getStyleInfo('font-size')
         var cellBlockSize = cellSize + cellSpacing
         var heatmapLeft = 16 * (cellBlockSize) // max 13 chars in names
         var heatmapTop = 10 * (cellBlockSize) // max 6 chars in names
@@ -199,37 +197,16 @@
 
           $scope.nextFunc = function () {
             $scope.currentStep += 1
-            var jumpToFirst = false
             changeShepherdStep()
             tour.next()
             $scope.$apply()
-          // if ($scope.currentStep > $scope.stories.length - 1) {
-          //  $scope.currentStep = 0
-          //  jumpToFirst = true
-          // }
-          // changeShepherdStep()
-          // if (jumpToFirst) {
-          //  tour.show(0)
-          // } else {
-          //  tour.next()
-          // }
           }
 
           $scope.backFunc = function () {
             $scope.currentStep -= 1
-            var jumpToLast = false
             changeShepherdStep()
             tour.back()
             $scope.$apply()
-          // if ($scope.currentStep < 0) {
-          //  $scope.currentStep = $scope.stories.length - 1
-          // }
-          // changeShepherdStep()
-          // if (jumpToLast){
-          //  tour.show($scope.stories.length - 1)
-          // } else {
-          //  tour.back()
-          // }
           }
 
           var buttons = []

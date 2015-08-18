@@ -8,10 +8,10 @@
  * Service in the frontendApp.
  */
 ;(function () {
+  var angular = window.angular
+  var $ = window.$
   angular.module('frontendApp')
     .service('LegcoConfig', function () {
-      var angular = window.angular
-      var $ = window.$
       // AngularJS will instantiate a singleton by calling "new" on this function
       var config = {
         getBaseURL: function () {

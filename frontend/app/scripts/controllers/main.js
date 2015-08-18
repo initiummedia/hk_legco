@@ -8,14 +8,8 @@
  * Controller of the frontendApp
  */
 ;(function () {
+  var angular = window.angular
+  // var $ = window.$
   angular.module('frontendApp')
-    .controller('MainCtrl', function ($scope) {
-      var angular = window.angular
-      var $ = window.$
-      $scope.awesomeThings = [
-        'HTML5 Boilerplate',
-        'AngularJS',
-        'Karma'
-      ]
-    })
+    .controller('MainCtrl', function ($scope) {})
 }())

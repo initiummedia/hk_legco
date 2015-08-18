@@ -8,6 +8,8 @@
  * Controller of the frontendApp
  */
 ;(function () {
+  var angular = window.angular
+  var $ = window.$
   angular.module('frontendApp')
     .controller('QuizCtrl', function ($rootScope, $scope, $timeout, ngDialog, LegcoConfig) {
       // // TODO: probably there is a better global position for this?
@@ -15,8 +17,6 @@
       //  console.log("location changing to:" + next)
       //  ngDialog.close()
       // })
-      var angular = window.angular
-      var $ = window.$
 
       $scope.quizes = [
         {

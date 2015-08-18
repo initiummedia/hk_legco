@@ -9,16 +9,10 @@
  */
 ;(function () {
   var angular = window.angular
-  var $ = window.$
+  // var $ = window.$
   angular.module('frontendApp')
 
     .controller('BlogCtrl', function ($scope, $location) {
-      $scope.awesomeThings = [
-        'HTML5 Boilerplate',
-        'AngularJS',
-        'Karma'
-      ]
-
       $scope.urlToThisPage = $location.absUrl()
 
       // Detect whether the document is simplified

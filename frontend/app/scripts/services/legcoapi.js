@@ -8,11 +8,11 @@
  * Service in the frontendApp.
  */
 ;(function () {
+  var angular = window.angular
+  // var $ = window.$
   angular.module('frontendApp')
     .service('LegcoApi', function ($http, LegcoConfig) {
       // AngularJS will instantiate a singleton by calling "new" on this function
-      var angular = window.angular
-      var $ = window.$
       var apiBaseURL = LegcoConfig.getApiBaseURL()
       console.log(apiBaseURL)
       var api = {
