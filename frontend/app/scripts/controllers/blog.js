@@ -9,6 +9,8 @@
  */
 ;(function () {
   var angular = window.angular
+  var localStorage = window.localStorage
+  var XMLHttpRequest = window.XMLHttpRequest
   // var $ = window.$
   angular.module('frontendApp')
 
@@ -21,8 +23,8 @@
       }
 
       legcoWeb.generalTitle = document.getElementById('generalTitle')
-      console.log(generalTitle.innerText)
-      if (generalTitle.innerHTML === '廿一世紀立會網絡') {
+      console.log(legcoWeb.generalTitle.innerText)
+      if (legcoWeb.generalTitle.innerHTML === '廿一世紀立會網絡') {
         legcoWeb.lang = 'hant'
         legcoWeb.title = '廿一世紀立會網絡'
         legcoWeb.description = '端傳媒「一圖看懂香港立法會」，泛民制一目了然。有人不提案，也有人投自己反對票。漲知識啊'
@@ -103,7 +105,7 @@
       function shareToWeibo (urlForSharing) {
         return function () {
           var url = encodeURIComponent(urlForSharing)
-          var title = encodeURIComponent('分享：' + legcoWeb.title)
+          // var title = encodeURIComponent('分享：' + legcoWeb.title)
           var description = encodeURIComponent(legcoWeb.description)
           window.open('http://service.weibo.com/share/share.php?title=' + description + '&url=' + url)
           post('share', 'weibo')
@@ -113,7 +115,7 @@
       function shareToTwitter (urlForSharing) {
         return function () {
           var url = encodeURIComponent(urlForSharing)
-          var title = encodeURIComponent('Share: ' + legcoWeb.title)
+          // var title = encodeURIComponent('Share: ' + legcoWeb.title)
           var description = encodeURIComponent(legcoWeb.description)
           window.open('https://twitter.com/intent/tweet?text=' + description + url)
           post('share', 'twitter')
