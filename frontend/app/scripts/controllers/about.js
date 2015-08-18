@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * @ngdoc function
@@ -7,22 +7,26 @@
  * # AboutCtrl
  * Controller of the frontendApp
  */
-angular.module('frontendApp')
-  .controller('AboutCtrl', ['$scope', '$location', '$http', function ($scope, $location, $http) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-    console.log($location.path());
+;(function () {
+  var angular = window.angular
+  // var $ = window.$
+  angular.module('frontendApp')
+    .controller('AboutCtrl', ['$scope', '$location', '$http', function ($scope, $location, $http) {
+      $scope.awesomeThings = [
+        'HTML5 Boilerplate',
+        'AngularJS',
+        'Karma'
+      ]
+      console.log($location.path())
 
-    var url='api/hk-legco-pointers/hk-legco-pointers.json';
-    $http.get(url).success(function(data){
-      console.log('Get projects success');
-      $scope.projects = data;
-    }).error(function(){
-      console.log('Get projects error');
-    });
+      var url = 'api/hk-legco-pointers/hk-legco-pointers.json'
+      $http.get(url).success(function (data) {
+        console.log('Get projects success')
+        $scope.projects = data
+      }).error(function () {
+        console.log('Get projects error')
+      })
 
-  }]);
+    }])
 
+}())
