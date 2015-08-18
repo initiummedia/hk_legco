@@ -11,7 +11,6 @@
   var angular = window.angular
   var localStorage = window.localStorage
   var XMLHttpRequest = window.XMLHttpRequest
-  // var $ = window.$
   angular.module('frontendApp')
 
     .controller('BlogCtrl', function ($scope, $location) {
@@ -22,7 +21,7 @@
         videoURL: 'https://www.youtube.com/watch?v=PIgbvFyOnwA' // FIXME
       }
 
-      legcoWeb.generalTitle = document.getElementById('generalTitle')
+      legcoWeb.generalTitle = document.getElementById('generalTitle') || {}
       console.log(legcoWeb.generalTitle.innerText)
       if (legcoWeb.generalTitle.innerHTML === '廿一世紀立會網絡') {
         legcoWeb.lang = 'hant'
@@ -41,12 +40,15 @@
         // Otherwise, get a UUID from server.
 
         'use strict'
+        // Refer to the object on which this method is being called
+        // Store the variable here for later use
+        var me = this
         if (localStorage.getItem('uuid')) {
-          this.uuid = localStorage.getItem('uuid')
+          me.uuid = localStorage.getItem('uuid')
         } else {
           var url = 'http://s.init.im:8081/utility/uuid/'
           var uuid = 'LocalDefault' + Math.random().toString() // In case UUID server fails
-          this.uuid = uuid
+          me.uuid = uuid
           localStorage.setItem('uuid', uuid)
 
           var request = new XMLHttpRequest()
@@ -59,9 +61,10 @@
                 uuid = response.data.uuid
               }
             }
-            this.uuid = uuid
+            // Use closure here to refer to the object in async function
+            me.uuid = uuid
             localStorage.setItem('uuid', uuid)
-          }.bind(this)
+          }
           request.send()
         }
       }
@@ -134,38 +137,48 @@
         post('share', 'wechat')
       }
 
-      document.getElementById('shareVideoToFacebookAnchor').addEventListener('click',
+      var safeGetElementById = function (id) {
+        var dummyElement = document.createElement('p')
+        var myElement = document.getElementById('shareVideoToFacebookAnchor')
+        if (myElement) {
+          return myElement
+        } else {
+          return dummyElement
+        }
+      }
+
+      safeGetElementById('shareVideoToFacebookAnchor').addEventListener('click',
         shareToFacebook(legcoWeb.videoURL),
         false)
-      document.getElementById('shareVideoToWeiboAnchor').addEventListener('click',
+      safeGetElementById('shareVideoToWeiboAnchor').addEventListener('click',
         shareToWeibo(legcoWeb.videoURL),
         false)
-      document.getElementById('shareVideoToTwitterAnchor').addEventListener('click',
+      safeGetElementById('shareVideoToTwitterAnchor').addEventListener('click',
         shareToTwitter(legcoWeb.videoURL),
         false)
-      document.getElementById('shareVideoToWeChatAnchor').addEventListener('click',
+      safeGetElementById('shareVideoToWeChatAnchor').addEventListener('click',
         shareVideoToWeChat,
         false)
 
-      document.getElementById('btnCloseWeChatVideoSharePopup').addEventListener('click',
+      safeGetElementById('btnCloseWeChatVideoSharePopup').addEventListener('click',
         function () {
           document.getElementById('divVideoQRCode').style.display = 'none'
         }, false)
 
-      document.getElementById('shareArticleToFacebookAnchor').addEventListener('click',
+      safeGetElementById('shareArticleToFacebookAnchor').addEventListener('click',
         shareToFacebook($scope.urlToThisPage),
         false)
-      document.getElementById('shareArticleToWeiboAnchor').addEventListener('click',
+      safeGetElementById('shareArticleToWeiboAnchor').addEventListener('click',
         shareToWeibo($scope.urlToThisPage),
         false)
-      document.getElementById('shareArticleToTwitterAnchor').addEventListener('click',
+      safeGetElementById('shareArticleToTwitterAnchor').addEventListener('click',
         shareToTwitter($scope.urlToThisPage),
         false)
-      document.getElementById('shareArticleToWeChatAnchor').addEventListener('click',
+      safeGetElementById('shareArticleToWeChatAnchor').addEventListener('click',
         shareArticleToWeChat,
         false)
 
-      document.getElementById('btnCloseWeChatArticleSharePopup').addEventListener('click',
+      safeGetElementById('btnCloseWeChatArticleSharePopup').addEventListener('click',
         function () {
           document.getElementById('divArticleQRCode').style.display = 'none'
         }, false)
@@ -174,7 +187,7 @@
       post('render', legcoWeb.lang + '-rendered')
 
       // Enable click-to-play for videos
-      var video = document.getElementById('introVideo')
+      var video = safeGetElementById('introVideo')
       video.addEventListener('click', function () {
         this.paused ? this.play() : this.pause()
         post('video', 'clicked')
