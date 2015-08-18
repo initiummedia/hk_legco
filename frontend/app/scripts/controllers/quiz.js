@@ -15,6 +15,8 @@
       //  console.log("location changing to:" + next)
       //  ngDialog.close()
       // })
+      var angular = window.angular
+      var $ = window.$
 
       $scope.quizes = [
         {

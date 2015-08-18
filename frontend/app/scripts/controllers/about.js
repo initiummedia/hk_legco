@@ -8,6 +8,8 @@
  * Controller of the frontendApp
  */
 ;(function () {
+  var angular = window.angular
+  var $ = window.$
   angular.module('frontendApp')
     .controller('AboutCtrl', ['$scope', '$location', '$http', function ($scope, $location, $http) {
       $scope.awesomeThings = [

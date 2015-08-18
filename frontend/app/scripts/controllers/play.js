@@ -10,6 +10,8 @@
 ;(function () {
   angular.module('frontendApp')
     .controller('PlayCtrl', ['$scope', '$http', function ($scope, $http) {
+      var angular = window.angular
+      var $ = window.$
       $scope.awesomeThings = [
         'HTML5 Boilerplate',
         'AngularJS',

@@ -8,6 +8,8 @@
  * Controller of the frontendApp
  */
 ;(function () {
+  var angular = window.angular
+  var $ = window.$
   angular.module('frontendApp')
     .controller('DivCtrl', ['$rootScope', '$scope', '$http', 'LegcoApi', function ($rootScope, $scope, $http, LegcoApi) {
       $scope.awesomeThings = [
