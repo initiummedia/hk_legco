@@ -84,7 +84,8 @@ module.exports = function (grunt) {
       },
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
-        tasks: ['newer:jshint:test', 'karma']
+        //tasks: ['newer:jshint:test', 'karma']
+        tasks: ['newer:standard', 'karma']
       },
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
@@ -529,6 +530,7 @@ module.exports = function (grunt) {
     standard: {
       app: {
         src: [
+          'Gruntfile.js',
           '<%= yeoman.app %>/scripts/**/*.js'
         ]
       }
