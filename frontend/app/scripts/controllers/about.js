@@ -13,16 +13,16 @@ angular.module('frontendApp')
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
-    ];
-    console.log($location.path());
+    ]
+    console.log($location.path())
 
-    var url='api/hk-legco-pointers/hk-legco-pointers.json';
+    var url='api/hk-legco-pointers/hk-legco-pointers.json'
     $http.get(url).success(function(data){
-      console.log('Get projects success');
-      $scope.projects = data;
+      console.log('Get projects success')
+      $scope.projects = data
     }).error(function(){
-      console.log('Get projects error');
-    });
+      console.log('Get projects error')
+    })
 
-  }]);
+  }])
 

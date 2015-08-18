@@ -14,27 +14,27 @@ angular.module('frontendApp')
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
-    ];
+    ]
 
-    $scope.urlToThisPage = $location.absUrl();
+    $scope.urlToThisPage = $location.absUrl()
 
     // Detect whether the document is simplified
     var legcoWeb = {
       videoURL: 'https://www.youtube.com/watch?v=PIgbvFyOnwA' //FIXME
-    };
+    }
 
-    legcoWeb.generalTitle = document.getElementById('generalTitle');
-    console.log(generalTitle.innerText);
+    legcoWeb.generalTitle = document.getElementById('generalTitle')
+    console.log(generalTitle.innerText)
     if (generalTitle.innerHTML === '廿一世紀立會網絡') {
-      legcoWeb.lang = 'hant';
-      legcoWeb.title = "廿一世紀立會網絡";
-      legcoWeb.description = "端傳媒「一圖看懂香港立法會」，泛民制一目了然。有人不提案，也有人投自己反對票。漲知識啊";
-      legcoWeb.url = 'http://legco.initiumlab.com/20150812-hk-legco-analysis';
+      legcoWeb.lang = 'hant'
+      legcoWeb.title = "廿一世紀立會網絡"
+      legcoWeb.description = "端傳媒「一圖看懂香港立法會」，泛民制一目了然。有人不提案，也有人投自己反對票。漲知識啊"
+      legcoWeb.url = 'http://legco.initiumlab.com/20150812-hk-legco-analysis'
     } else {
-      legcoWeb.lang = 'hans';
-      legcoWeb.title = "廿一世纪立会网络";
-      legcoWeb.description = "端传媒「一图看懂香港立法会」，泛民制一目了然。有人不提桉，也有人投自己反对票。涨知识啊";
-      legcoWeb.url = 'http://legco.initiumlab.com/20150812-hk-legco-analysis-hans';
+      legcoWeb.lang = 'hans'
+      legcoWeb.title = "廿一世纪立会网络"
+      legcoWeb.description = "端传媒「一图看懂香港立法会」，泛民制一目了然。有人不提桉，也有人投自己反对票。涨知识啊"
+      legcoWeb.url = 'http://legco.initiumlab.com/20150812-hk-legco-analysis-hans'
     }
 
     legcoWeb.setUUID = function() {
@@ -42,49 +42,49 @@ angular.module('frontendApp')
       // If localStorage contains an existing UUID, use it as the UUID of the app.
       // Otherwise, get a UUID from server.
 
-      "use strict";
+      "use strict"
       if (localStorage.getItem('uuid')) {
-        this.uuid = localStorage.getItem('uuid');
+        this.uuid = localStorage.getItem('uuid')
       } else {
-        var url = 'http://s.init.im:8081/utility/uuid/';
-        var uuid = 'LocalDefault'+Math.random().toString(); // In case UUID server fails
-        this.uuid = uuid;
-        localStorage.setItem('uuid', uuid);
+        var url = 'http://s.init.im:8081/utility/uuid/'
+        var uuid = 'LocalDefault'+Math.random().toString() // In case UUID server fails
+        this.uuid = uuid
+        localStorage.setItem('uuid', uuid)
 
-        var request = new XMLHttpRequest();
-        request.open('GET', url, true);
+        var request = new XMLHttpRequest()
+        request.open('GET', url, true)
         request.onload = function () {
-          console.log('UUID server responded');
+          console.log('UUID server responded')
           if (request.status >= 200 && request.status < 400) {
-            var response = JSON.parse(request.responseText);
+            var response = JSON.parse(request.responseText)
             if (response.success) {
-              uuid = response.data.uuid;
+              uuid = response.data.uuid
             }
           }
-          this.uuid = uuid;
-          localStorage.setItem('uuid', uuid);
-        }.bind(this);
-        request.send();
+          this.uuid = uuid
+          localStorage.setItem('uuid', uuid)
+        }.bind(this)
+        request.send()
       }
-    };
+    }
 
     function post(keyToPost, valueToPost) {
-      "use strict";
-      var url = "http://s.init.im:8081/remember/legcoweb/";
-      var request = new XMLHttpRequest();
+      "use strict"
+      var url = "http://s.init.im:8081/remember/legcoweb/"
+      var request = new XMLHttpRequest()
       var message = {
         username: legcoWeb.uuid,
         key: keyToPost,
         value: valueToPost,
         raw: '',
         datetime: Date.now()
-      };
+      }
 
-      request.open('POST', url, true);
-      request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-      var jsonString = JSON.stringify(message);
-      request.send(jsonString);
-      console.log('tried to post '+jsonString);
+      request.open('POST', url, true)
+      request.setRequestHeader('Content-Type', 'application/json charset=UTF-8')
+      var jsonString = JSON.stringify(message)
+      request.send(jsonString)
+      console.log('tried to post '+jsonString)
     }
 
     function shareToFacebook(urlForSharing) {
@@ -92,7 +92,7 @@ angular.module('frontendApp')
       return function() {
         var description = encodeURIComponent(legcoWeb.description),
           url = encodeURIComponent(urlForSharing),
-          title = encodeURIComponent(legcoWeb.title);
+          title = encodeURIComponent(legcoWeb.title)
 
         window.open('https://www.facebook.com/dialog/feed?app_id=1485405728425484' +
           '&link=' + url +
@@ -100,87 +100,87 @@ angular.module('frontendApp')
           '&name=' + title +
           '&description=' + description +
           '&redirect_uri=' + url
-        );
-        post('share', 'facebook');
+        )
+        post('share', 'facebook')
       }
     }
 
     function shareToWeibo(urlForSharing) {
       return function () {
-        var url = encodeURIComponent(urlForSharing);
-        var title = encodeURIComponent('分享：' + legcoWeb.title);
-        var description = encodeURIComponent(legcoWeb.description);
-        window.open('http://service.weibo.com/share/share.php?title=' + description + '&url=' + url);
-        post('share', 'weibo');
+        var url = encodeURIComponent(urlForSharing)
+        var title = encodeURIComponent('分享：' + legcoWeb.title)
+        var description = encodeURIComponent(legcoWeb.description)
+        window.open('http://service.weibo.com/share/share.php?title=' + description + '&url=' + url)
+        post('share', 'weibo')
       }
     }
 
     function shareToTwitter (urlForSharing) {
       return function () {
-        var url = encodeURIComponent(urlForSharing);
-        var title = encodeURIComponent('Share: ' + legcoWeb.title);
-        var description = encodeURIComponent(legcoWeb.description);
-        window.open('https://twitter.com/intent/tweet?text=' + description + url);
-        post('share', 'twitter');
+        var url = encodeURIComponent(urlForSharing)
+        var title = encodeURIComponent('Share: ' + legcoWeb.title)
+        var description = encodeURIComponent(legcoWeb.description)
+        window.open('https://twitter.com/intent/tweet?text=' + description + url)
+        post('share', 'twitter')
       }
     }
 
     function shareVideoToWeChat() {
-      var divQRCode = document.getElementById('divVideoQRCode');
-      divQRCode.style.display = 'block';
-      post('share', 'wechat');
+      var divQRCode = document.getElementById('divVideoQRCode')
+      divQRCode.style.display = 'block'
+      post('share', 'wechat')
     }
 
     function shareArticleToWeChat() {
-      var divQRCode = document.getElementById('divArticleQRCode');
-      divQRCode.style.display = 'block';
-      post('share', 'wechat');
+      var divQRCode = document.getElementById('divArticleQRCode')
+      divQRCode.style.display = 'block'
+      post('share', 'wechat')
     }
 
     document.getElementById('shareVideoToFacebookAnchor').addEventListener('click',
       shareToFacebook(legcoWeb.videoURL),
-      false);
+      false)
     document.getElementById('shareVideoToWeiboAnchor').addEventListener('click',
       shareToWeibo(legcoWeb.videoURL),
-      false);
+      false)
     document.getElementById('shareVideoToTwitterAnchor').addEventListener('click',
       shareToTwitter(legcoWeb.videoURL),
-      false);
+      false)
     document.getElementById('shareVideoToWeChatAnchor').addEventListener('click',
       shareVideoToWeChat,
-      false);
+      false)
 
     document.getElementById('btnCloseWeChatVideoSharePopup').addEventListener('click',
     function(){
-      document.getElementById('divVideoQRCode').style.display = 'none';
-    }, false);
+      document.getElementById('divVideoQRCode').style.display = 'none'
+    }, false)
 
     document.getElementById('shareArticleToFacebookAnchor').addEventListener('click',
       shareToFacebook($scope.urlToThisPage),
-      false);
+      false)
     document.getElementById('shareArticleToWeiboAnchor').addEventListener('click',
       shareToWeibo($scope.urlToThisPage),
-      false);
+      false)
     document.getElementById('shareArticleToTwitterAnchor').addEventListener('click',
       shareToTwitter($scope.urlToThisPage),
-      false);
+      false)
     document.getElementById('shareArticleToWeChatAnchor').addEventListener('click',
       shareArticleToWeChat,
-      false);
+      false)
 
     document.getElementById('btnCloseWeChatArticleSharePopup').addEventListener('click',
       function(){
-        document.getElementById('divArticleQRCode').style.display = 'none';
-      }, false);
+        document.getElementById('divArticleQRCode').style.display = 'none'
+      }, false)
     // Logic
-    legcoWeb.setUUID();
-    post('render', legcoWeb.lang+'-rendered');
+    legcoWeb.setUUID()
+    post('render', legcoWeb.lang+'-rendered')
 
     // Enable click-to-play for videos
-    var video = document.getElementById('introVideo');
+    var video = document.getElementById('introVideo')
     video.addEventListener('click', function(){
-      this.paused?this.play():this.pause();
-      post('video', 'clicked');
-    }, false);
+      this.paused?this.play():this.pause()
+      post('video', 'clicked')
+    }, false)
 
-  });
+  })

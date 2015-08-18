@@ -13,13 +13,13 @@ angular.module('frontendApp')
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
-    ];
+    ]
 
-    $scope.myPromise1 = $http.get('https://spreadsheets.google.com/feeds/list/1s2CkDX0sMaZHzHjl_hbJs8DkyUAca08enU1te3aEPUU/od6/public/values?alt=json');
-    $scope.myPromise2 = $http.get('/api/mv-relation.json');
-    $scope.myPromise3 = $http.get('/api/transdict-mover.json');
-    $scope.myPromise4 = $http.get('/api/transdict-voter.json');
+    $scope.myPromise1 = $http.get('https://spreadsheets.google.com/feeds/list/1s2CkDX0sMaZHzHjl_hbJs8DkyUAca08enU1te3aEPUU/od6/public/values?alt=json')
+    $scope.myPromise2 = $http.get('/api/mv-relation.json')
+    $scope.myPromise3 = $http.get('/api/transdict-mover.json')
+    $scope.myPromise4 = $http.get('/api/transdict-voter.json')
 
-  }]);
+  }])
 
 

@@ -12,9 +12,9 @@ angular.module('frontendApp')
 
     //// TODO: probably there is a better global position for this?
     //$rootScope.$on("$locationChangeStart", function(event, next, current) {
-    //  console.log("location changing to:" + next);
-    //  ngDialog.close();
-    //});
+    //  console.log("location changing to:" + next)
+    //  ngDialog.close()
+    //})
 
     $scope.quizes = [
       {
@@ -35,58 +35,58 @@ angular.module('frontendApp')
         'answerIndex': 4,
         'explanation': '潘兆平提出的多為民生議題，受許多泛民議員的歡迎。'
       }
-    ];
+    ]
 
     for (var i = 0; i < $scope.quizes.length; i ++) {
-      $scope.quizes[i]['answerFromUser'] = -1;
+      $scope.quizes[i]['answerFromUser'] = -1
     }
 
-    $scope.quizFinished = false;
+    $scope.quizFinished = false
     $scope.updateQuizStatus = function(){
-      $scope.showAnswer = false;
+      $scope.showAnswer = false
       $timeout(function(){
-        $scope.showAnswer = true;
-      }, 200);
+        $scope.showAnswer = true
+      }, 200)
       $timeout(function(){
         //$scope.quizFinished = _.reduce($scope.quizes, function(a, b){
-        //  return a && (b['answerFromUser'] != -1 && b['answerFromUser'] == b['answerIndex']);
-        //}, true);
+        //  return a && (b['answerFromUser'] != -1 && b['answerFromUser'] == b['answerIndex'])
+        //}, true)
         //if ($scope.quizFinished) {
         //  ngDialog.open({
         //    template: 'finishedDialog'
-        //  });
+        //  })
         //}
-      }, 300);
-    };
+      }, 300)
+    }
 
-    $scope.questionID = 0;
-    $scope.showQuizFinishedNotice = false;
+    $scope.questionID = 0
+    $scope.showQuizFinishedNotice = false
 
     $scope.nextQuiz = function(){
       //TODO:
       //    Clear up the logics in an Angular way.
       //    Historically, we show all the questions on one page.
       //    The following is adapted from old code.
-      console.log($scope.questionID);
-      $('.quiz').hide();
-      $('#quiz-block-' + $scope.questionID).show();
-      $scope.questionID += 1;
+      console.log($scope.questionID)
+      $('.quiz').hide()
+      $('#quiz-block-' + $scope.questionID).show()
+      $scope.questionID += 1
       if ($scope.questionID > 3) {
-        $scope.showQuizFinishedNotice = true;
+        $scope.showQuizFinishedNotice = true
       }
-    };
+    }
 
     $timeout(function(){
-      $scope.nextQuiz();
-    }, 200);
+      $scope.nextQuiz()
+    }, 200)
 
-    //for (var i = 0; i < $scope.quizes.length; i++) {
+    //for (var i = 0 i < $scope.quizes.length i++) {
     //  ngDialog.open({
     //    template: 'quiz-template',
     //    scope: $scope
-    //  });
+    //  })
     //}
 
-    $scope.getRealPath = LegcoConfig.getRealPath;
+    $scope.getRealPath = LegcoConfig.getRealPath
 
-  });
+  })

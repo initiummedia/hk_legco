@@ -13,9 +13,9 @@
 angular.module('frontendApp')
   .controller('HeaderCtrl', ['$scope', '$location', 'LegcoConfig', function ($scope, $location, LegcoConfig) {
     $scope.isActive = function (viewLocation){
-      return viewLocation === $location.path();
-    };
-    //$scope.showHeader = false;
+      return viewLocation === $location.path()
+    }
+    //$scope.showHeader = false
     //if ([
     //    '/blog',
     //    '/blog/',
@@ -26,13 +26,13 @@ angular.module('frontendApp')
     //    '/20150812-hk-legco-analysis-hans',
     //    '/20150812-hk-legco-analysis-hans/'
     //  ].indexOf($location.path()) != -1) {
-    //  $scope.showHeader = false;
+    //  $scope.showHeader = false
     //} else {
-    //  $scope.showHeader = true;
-    //};
-    $scope.showHeader = true;
-    //console.log('path:' + $location.path() + '|');
+    //  $scope.showHeader = true
+    //}
+    $scope.showHeader = true
+    //console.log('path:' + $location.path() + '|')
 
-    $scope.getRealPath = LegcoConfig.getRealPath;
+    $scope.getRealPath = LegcoConfig.getRealPath
 
-  }]);
+  }])

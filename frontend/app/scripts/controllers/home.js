@@ -13,5 +13,5 @@ angular.module('frontendApp')
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
-    ];
-  });
+    ]
+  })
