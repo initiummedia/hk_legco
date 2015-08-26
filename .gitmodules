@@ -13,3 +13,6 @@
 [submodule "frontend/app/api/hk-legco-pointers"]
 	path = frontend/app/api/hk-legco-pointers
 	url = git@github.com:initiummedia/hk-legco-pointers.git
+[submodule "third/hupili-engg4030"]
+	path = third/hupili-engg4030
+	url = git@github.com:hupili/engg4030.git
