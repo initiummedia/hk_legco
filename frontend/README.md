@@ -4,6 +4,9 @@
 
 ## Dependencies
 
+* `npm install`
+* `bower install`
+
 Choose 2
 
 ```

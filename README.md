@@ -6,10 +6,12 @@ Analyse hk-lego in depth.
 
 * Python3
 
+## Layout
+
+* `scripts`: Data preparation and processing scripts
+* `frontend`: Frontend, including all dev/test/deploy flows
+
 ## References
 
-First see those submoduled.
-We also refer to following related projects:
+See those submodules in `third`.
 
-* ??
-* ??
