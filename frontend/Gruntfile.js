@@ -453,6 +453,18 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
+      },
+      meta: {
+        expand: true,
+        flatten: true,
+        src: ['app/meta.json'],
+        dest: 'dist/' 
+      },
+      thumbnail: {
+        expand: true,
+        flatten: true,
+        src: ['app/thumbnail.json'],
+        dest: 'dist/' 
       }
     },
 
@@ -597,6 +609,8 @@ module.exports = function (grunt) {
   grunt.registerTask('deploy:staging', [
     'targethtml:staging',
     'copy:indices',
+    'copy:meta',
+    'copy:thumbnail',
     'rsync:showcase'
   ])
 

@@ -56,7 +56,7 @@ module.exports = function(config) {
       'bower_components/angulartics/src/angulartics-intercom.js',
       'bower_components/angulartics/src/angulartics-inspectlet.js',
       'bower_components/angulartics/src/angulartics-newrelic-insights.js',
-      'bower_components/angulartics-google-analytics/dist/angulartics-google-analytics.min.js',
+      'bower_components/angulartics-google-analytics/lib/angulartics-google-analytics.js',
       'bower_components/xdomain/dist/xdomain.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
