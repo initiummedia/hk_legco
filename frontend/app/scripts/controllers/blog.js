@@ -46,7 +46,7 @@
         if (localStorage.getItem('uuid')) {
           me.uuid = localStorage.getItem('uuid')
         } else {
-          var url = 'http://s.init.im:8081/utility/uuid/'
+          var url = 'https://ss.initiumlab.com/utility/uuid/'
           var uuid = 'LocalDefault' + Math.random().toString() // In case UUID server fails
           me.uuid = uuid
           localStorage.setItem('uuid', uuid)
@@ -71,7 +71,7 @@
 
       function post (keyToPost, valueToPost) {
         'use strict'
-        var url = 'http://s.init.im:8081/remember/legcoweb/'
+        var url = 'https://ss.initiumlab.com/remember/legcoweb/'
         var request = new XMLHttpRequest()
         var message = {
           username: legcoWeb.uuid,
